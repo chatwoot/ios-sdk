@@ -21,11 +21,11 @@ struct HomeRouter: Repository {
         self.network = network
     }
     
-    func getTermsApi(completion: @escaping Response<String>) {
-        network.request(route: HomeNetworkRouter.termsAndConditions, completion: completion)
+    func listAllConversationsApi(completion: @escaping Response<[AllConversationsModel]>) {
+        network.request(route: HomeNetworkRouter.listAllConversations, completion: completion)
     }
     
-    func switchAccountApi(params: SwitchAccountRequest,completion: @escaping Response<SwitchAccountModel>) {
-        network.request(route: HomeNetworkRouter.switchAccount(params: params), completion: completion)
+    func createContactApi(params: CreateContactRequest,completion: @escaping Response<CreateContactModel>) {
+        network.request(route: HomeNetworkRouter.createContact(params: params), completion: completion)
     }
 }

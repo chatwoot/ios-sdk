@@ -14,7 +14,7 @@ extension UICollectionView {
         messageLabel.textColor = .gray
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "Biennale-Regular", size: size)
+        messageLabel.font = UIFont(name: "HelveticaNeueeTextPro-MdIt", size: size)
         messageLabel.sizeToFit()
         self.backgroundView = messageLabel
     }

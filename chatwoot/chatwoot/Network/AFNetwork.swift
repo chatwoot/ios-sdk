@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 typealias ResponseType = Decodable
-typealias AFResponse<Response: Decodable> = Alamofire.DataResponse<ApiResponse<Response>, AFError>
+typealias AFResponse<Response: Decodable> = Alamofire.DataResponse<Response, AFError>
 
 struct AFNetwork: NetworkService {
     
@@ -89,57 +89,23 @@ struct AFNetwork: NetworkService {
                     }
                 }
             }
-        },to: "\(ServerConfig().baseURL.absoluteString)\(url)", usingThreshold: UInt64.init(),method: isUpdate ? .put : .post, headers: ["Content-type": "application/x-www-form-urlencoded","Authorization": "Bearer \(GetUserDefaults.authToken)",]).responseDecodable(decoder: JSONDecoder.custom()) { (response: AFResponse<T>) in
+        },to: "\(ServerConfig().baseURL.absoluteString)\(url)", usingThreshold: UInt64.init(),method: isUpdate ? .put : .post, headers: ["Content-type": "application/x-www-form-urlencoded","api_access_token": (GetUserDefaults.contactInfo.pubsubToken ?? ""),]).responseDecodable(decoder: JSONDecoder.custom()) { (response: AFResponse<T>) in
             self.handleResponse(response, completion: completion)
         }
         
     }
     
     func handleResponse<T: ResponseType>(_ response: AFResponse<T>, completion: @escaping (CompletionType<T>) -> Void) {
-        let statusCode = response.response?.statusCode ?? 0
-        
         switch response.result {
         case .success(let value):
-            guard value.status else {
-                // Error from Server
-                switch statusCode {
-                case 401:
-                    AppSession.logout()
-                    //  NotificationCenter.default.post(name: .didUpdateRefreshToken, object: nil)
-                    return
-                default: break
-                }
-                let error = NSError(domain: "Mahamz", code: statusCode, userInfo: [NSLocalizedDescriptionKey: value.message ?? ""])
-                completion(.failure(error))
-                return
-            }
-            
-            guard let result = value.data else {
-                // Api success, but no result object. In this case generally `T` would be `String`
-                if let message = value.message as? T {
-                    completion(.success(message))
-                    return
-                } else {
-                    if let status = value.status as? T {
-                        completion(.success(status))
-                    } else {
-                        let errorMessage = NSLocalizedString("Something wrong happed at server", comment: "")
-                        let error = NSError(domain: "AppSession.appName", code: statusCode, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        completion(.failure(error))
-                    }
-                }
-                return
-            }
-            
-            completion(.success(result))
-            
+            completion(.success(value))
         case .failure(let error):
             #if DEBUG
             print("API Error: \(error)")
-            
+            completion(.failure(error))
+
             #endif
             completion(.failure(error))
-            
         }
     }
 }

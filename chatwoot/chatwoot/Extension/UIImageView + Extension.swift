@@ -34,7 +34,7 @@ extension UIImageView {
             self.kf.setImage(with: url) { result in
                 switch result {
                 case .success(let value):
-                    //                    print("Image: \(value.image). Got from: \(value.cacheType)")
+                    //print("Image: \(value.image). Got from: \(value.cacheType)")
                     self.image = self.rotateImage(image: value.image)
                 case .failure(let error):
                     print("Error: \(error)")
@@ -76,7 +76,9 @@ extension UIImage {
         KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
             switch result {
             case .success(let value):
+                #if DEBUG
                 print("Image: \(value.image). Got from: \(value.cacheType)")
+                #endif
                 image = value.image
             case .failure(let error):
                 print("Error: \(error)")

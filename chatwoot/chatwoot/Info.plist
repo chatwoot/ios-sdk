@@ -20,6 +20,19 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>HelveticaNeueETPro45Light.TTF</string>
+		<string>HelveticaNeueETPro46LightIt.TTF</string>
+		<string>HelveticaNeueETPro55Roman.TTF</string>
+		<string>HelveticaNeueETPro56RomIt.TTF</string>
+		<string>HelveticaNeueETPro65Med.TTF</string>
+		<string>HelveticaNeueETPro66MedIt.TTF</string>
+		<string>HelveticaNeueETPro75Bd.TTF</string>
+		<string>HelveticaNeueETPro75BdIt.TTF</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

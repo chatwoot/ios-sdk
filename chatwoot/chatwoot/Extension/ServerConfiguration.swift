@@ -12,16 +12,18 @@ struct ServerConfig {
         case develop, staging, production
     }
     
-    private static let releaseMode: ReleaseMode = .production
+    private static let releaseMode: ReleaseMode = .staging
     
     public var baseURL: URL {
+        var urlFormatted = ""
         switch Self.releaseMode {
         case .develop:
-            return Constants.Urls.BaseUrl.develop
+            urlFormatted = Constants.Urls.BaseUrl.develop
         case .staging:
-            return Constants.Urls.BaseUrl.staging
+            urlFormatted = Constants.Urls.BaseUrl.staging
         case .production:
-            return Constants.Urls.BaseUrl.production
+            urlFormatted = Constants.Urls.BaseUrl.production
         }
+        return URL(string: urlFormatted.replacingOccurrences(of: "{inbox_identifier}", with: Constants.inboxIdentifier))!
     }
 }

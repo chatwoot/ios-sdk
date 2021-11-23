@@ -19,13 +19,3 @@ extension Router {
         ServerConfig().baseURL
     }
 }
-
-extension URLRequest {
-    
-    mutating func setAuthorizationHeader() {
-        if GetUserDefaults.authToken != "" {
-            setValue("Bearer \(GetUserDefaults.authToken)", forHTTPHeaderField: "Authorization")
-            addValue(GetUserDefaults.authToken , forHTTPHeaderField: "sessionId")
-        }
-    }
-}

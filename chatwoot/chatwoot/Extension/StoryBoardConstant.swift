@@ -25,17 +25,14 @@ extension StoryboardScene {
 }
 
 extension UIStoryboard {
-
     struct Main {
-
         private enum Identifier: String, StoryboardScene {
-
             static let storyboardName   = "Main"
-            case homeVC                 = "HomeViewController"
+            case conversationDetailsVC  = "ConversationDetailsVC"
         }
 
-        static func homeVC() -> UIViewController {
-            return Identifier.homeVC.viewController()
+        static func conversationDetailsVC() -> UIViewController {
+            return Identifier.conversationDetailsVC.viewController()
         }
     }
 }

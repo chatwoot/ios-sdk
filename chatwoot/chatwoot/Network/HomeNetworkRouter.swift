@@ -8,8 +8,8 @@
 import Foundation
 
 enum HomeNetworkRouter: Router {
-    case termsAndConditions
-    case switchAccount(params: SwitchAccountRequest)
+    case listAllConversations
+    case createContact(params: CreateContactRequest)
     
     var asURL: URL {
         baseURL.appendingPathComponent(path)
@@ -17,17 +17,15 @@ enum HomeNetworkRouter: Router {
     
     var path: String {
         switch self {
-        case .termsAndConditions: return "termsandconditions"
-        case .switchAccount: return "auth/switch"
+        case .listAllConversations: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier())
+        case .createContact: return "contacts"
         }
     }
     
     var method: String {
         switch self {
-        case .termsAndConditions: return "GET"
-            
-        case .switchAccount: return "POST"
-            
+        case .listAllConversations: return "GET"
+        case .createContact: return "POST"
         }
     }
     
@@ -36,14 +34,15 @@ enum HomeNetworkRouter: Router {
         var request = URLRequest(url: URL (string: url!)!)
         request.httpMethod = method
         request.cachePolicy = .useProtocolCachePolicy
-        request.setAuthorizationHeader()
         
         switch self {
-        case .termsAndConditions:
+        case .listAllConversations:
             break
-        case .switchAccount(let switchRequest):
-            request = try AFHelper.jsonEncode(switchRequest, into: request)
+        case .createContact(let createContactRequest):
+            request = try AFHelper.jsonEncode(createContactRequest, into: request)
         }
         return request
     }
+    
+  
 }

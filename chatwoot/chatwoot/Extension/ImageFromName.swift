@@ -55,7 +55,7 @@ public class ImageFromName: NSObject {
         } else {
             self.backgroundColor = self.randomColor()
         }
-            let customFont = UIFont(name: "Biennale-Regular", size: fontSize)
+            let customFont = UIFont(name: "HelveticaNeueeTextPro-MdIt", size: fontSize)
             self.font = customFont
     }
         

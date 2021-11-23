@@ -146,46 +146,6 @@ extension UIView {
         layer.mask = mask
     }
 }
-extension UIView {
-    func showToast(toastMessage:String,duration:CGFloat) {
-        let bgView = UIView(frame: self.frame)
-        bgView.backgroundColor = .clear
-        bgView.tag = 555
-        
-        let lblMessage = UILabel()
-        lblMessage.numberOfLines = 0
-        lblMessage.lineBreakMode = .byWordWrapping
-        lblMessage.textColor = .white
-        lblMessage.backgroundColor = .systemBlue
-        lblMessage.textAlignment = .center
-        lblMessage.font = UIFont.init(name: "Biennale-Regular", size: 15)
-        lblMessage.text = toastMessage
-
-        let maxSizeTitle : CGSize = CGSize(width: self.bounds.size.width-16, height: self.bounds.size.height)
-        var expectedSizeTitle : CGSize = lblMessage.sizeThatFits(maxSizeTitle)
-        expectedSizeTitle = CGSize(width:maxSizeTitle.width.getminimum(value2:expectedSizeTitle.width), height: maxSizeTitle.height.getminimum(value2:expectedSizeTitle.height))
-        lblMessage.frame = CGRect(x:((self.bounds.size.width)/2) - ((expectedSizeTitle.width+16)/2) , y: (self.bounds.size.height) - 100, width: expectedSizeTitle.width+16, height: expectedSizeTitle.height+16)
-        lblMessage.layer.cornerRadius = 8
-        lblMessage.layer.masksToBounds = true
-      //  lblMessage.padding = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        bgView.addSubview(lblMessage)
-        self.addSubview(bgView)
-        lblMessage.alpha = 0
-
-        UIView.animateKeyframes(withDuration:TimeInterval(duration) , delay: 0, options: [] , animations: {
-            lblMessage.alpha = 1
-            
-        }, completion: {sucess in
-            UIView.animate(withDuration:TimeInterval(duration), delay: 5, options: [] , animations: {
-                lblMessage.alpha = 0
-                bgView.alpha = 0
-                
-            })
-            bgView.removeFromSuperview()
-            
-        })
-    }
-}
 
 extension CGFloat {
     func getminimum(value2:CGFloat)->CGFloat {

@@ -7,69 +7,48 @@
 
 import Foundation
 
-struct AppSession {
-    
-    static let appName: String = "chatwoot"
-    
-    public static var current = AppSession()
-    
-    private init() {
-       
-    }
-    
-    // MARK: - UserSession
-    
-    var userSession = UserSession()
-    
-
-    static func login(_ user: String) {
-       
-    }
-    
-    static func registered(_ user: String) {
-        
-        UserDefaults().setIsLoggedIn(value: false)
-    }
-    
-    static func logout() {
-        current.userSession.logout()
-    }
- 
-}
-
-struct UserSession {
-    mutating func logout() {
-        SetUserDefaults.authToken("")
-        UserDefaults().setIsLoggedIn(value: false)
-        SetUserDefaults.userName("")
-    }
-}
-
 //User Userdefault keys
 struct UserDefaultKey {
-    static let authToken = "authToken"
-    static let username  = "userId"
+    static let contactInfo = "contact_info"
 }
 
 //Getter
 struct GetUserDefaults {
-    static var authToken: String {
-        UserDefaults.standard.getStringValueFor(key: UserDefaultKey.authToken)
-    }
+    static var contactInfo: CreateContactModel! {
+        var contactInfoStored: CreateContactModel?  = nil
+        if let data = UserDefaults.standard.data(forKey: UserDefaultKey.contactInfo) {
+            do {
+                // Create JSON Decoder
+                let decoder = JSONDecoder()
 
-    static var userName: String {
-        return UserDefaults.standard.getStringValueFor(key: UserDefaultKey.username)
+                // Decode contactInfo
+                contactInfoStored = try decoder.decode(CreateContactModel.self, from: data)
+
+            } catch {
+                print("Unable to Decode contactInfo (\(error))")
+            }
+        }
+        return contactInfoStored
     }
 }
 
 //Setter
 struct SetUserDefaults {
-    static func authToken(_ token: String) {
-        UserDefaults.standard.setStringValueFor(key: UserDefaultKey.authToken, value: token)
-    }
+    static func contactInfo(_ contactModel: CreateContactModel) {
+        do {
+            // Create JSON Encoder
+            let encoder = JSONEncoder()
 
-    static func userName(_ userName: String) {
-        UserDefaults.standard.setStringValueFor(key: UserDefaultKey.username, value: userName)
+            // Encode contactInfo
+            let data = try encoder.encode(contactModel)
+
+            // Write/Set Data
+            UserDefaults.standard.set(data, forKey: UserDefaultKey.contactInfo)
+            UserDefaults.standard.synchronize()
+
+        } catch {
+            print("Unable to Encode contactInfo (\(error))")
+        }
     }
 }
 
@@ -88,14 +67,5 @@ extension UserDefaults {
     func setCustomObjectFor (key: String, value: Data) {
         UserDefaults.standard.set(value, forKey: key)
         UserDefaults.standard.synchronize()
-    }
-        
-    func setIsLoggedIn(value: Bool) {
-        set(value, forKey: "IsLoggedIn")
-        synchronize()
-    }
-    
-    func isLoggedIn() -> Bool {
-        return bool(forKey: "IsLoggedIn")
     }
 }
