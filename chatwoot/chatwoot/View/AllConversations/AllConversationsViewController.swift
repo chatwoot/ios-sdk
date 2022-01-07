@@ -100,7 +100,7 @@ extension AllConversationsViewController: UITableViewDelegate {
             let conversationDetailsVC = UIStoryboard.Main.conversationDetailsVC() as! ConversationDetailsViewController
             conversationDetailsVC.modalPresentationStyle = .fullScreen
             conversationDetailsVC.modalTransitionStyle = .crossDissolve
-            conversationDetailsVC.conversationsModel = conversationsModel
+            conversationDetailsVC.selectedConversation = conversationsModel
             self.present(conversationDetailsVC, animated: true, completion: nil)
         }
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -355,7 +355,7 @@
                                             <constraint firstItem="adb-mC-3UX" firstAttribute="leading" secondItem="Jpt-AP-7HP" secondAttribute="leading" id="UrF-m4-xc0"/>
                                             <constraint firstItem="eJZ-gV-10n" firstAttribute="width" secondItem="KW4-Gj-Wey" secondAttribute="width" id="VOW-1h-irt"/>
                                             <constraint firstItem="KW4-Gj-Wey" firstAttribute="leading" secondItem="Jpt-AP-7HP" secondAttribute="leading" id="VWx-Kd-1JJ"/>
-                                            <constraint firstItem="adb-mC-3UX" firstAttribute="width" secondItem="Jpt-AP-7HP" secondAttribute="width" multiplier="0.161836" id="VpD-gR-vkD"/>
+                                            <constraint firstItem="adb-mC-3UX" firstAttribute="width" secondItem="Jpt-AP-7HP" secondAttribute="width" multiplier="0.161837" id="VpD-gR-vkD"/>
                                             <constraint firstItem="KW4-Gj-Wey" firstAttribute="width" secondItem="Jpt-AP-7HP" secondAttribute="width" multiplier="0.0483092" id="Yke-sR-6tv"/>
                                             <constraint firstItem="eJZ-gV-10n" firstAttribute="top" secondItem="Jpt-AP-7HP" secondAttribute="top" id="bob-77-8KK"/>
                                             <constraint firstItem="eJZ-gV-10n" firstAttribute="leading" secondItem="IzY-aP-3WK" secondAttribute="trailing" id="l5f-9p-jmS"/>

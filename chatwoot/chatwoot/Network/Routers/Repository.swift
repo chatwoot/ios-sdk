@@ -28,4 +28,8 @@ struct HomeRouter: Repository {
     func createContactApi(params: CreateContactRequest,completion: @escaping Response<CreateContactModel>) {
         network.request(route: HomeNetworkRouter.createContact(params: params), completion: completion)
     }
+    
+    func listAllMessagesApi(completion: @escaping Response<[MessageModel]>) {
+        network.request(route: HomeNetworkRouter.listAllMessages, completion: completion)
+    }
 }

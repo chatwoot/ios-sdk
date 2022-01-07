@@ -12,34 +12,40 @@ class ConversationDetailsViewController: UIViewController {
     @IBOutlet weak var lblAgentName: UILabel!
     
     @IBOutlet weak var allMessagesCollectionView: UICollectionView!
-
-    var conversationsModel: AllConversationsModel! = nil
-
-    private var allConversationsViewModel = AllConversationsViewModel()
     
-    var allConversations: [AllConversationsModel]! = nil
+    var selectedConversation: AllConversationsModel! = nil
+
+    private var conversationDetailsViewModel = ConversationDetailsViewModel()
+    
+    var allMessages: [MessageModel]! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //FIXME:- AgentName
-        let lastMessage: MessagesModel = conversationsModel.messages.last!
+        let lastMessage: MessageModel = selectedConversation.messages.last!
         lblAgentName.text = lastMessage.sender.senderName
         
         handleAPICalls()
     }
     
     func handleAPICalls() {
-        //allConversationsViewModel.delegate = self
-        if GetUserDefaults.contactInfo == nil {
-            allConversationsViewModel.createContactApi()
-        }
-        else {
-            allConversationsViewModel.listAllConversationsApi()
-        }
+        conversationDetailsViewModel.delegate = self
+        conversationDetailsViewModel.listAllMessagesApi()
     }
     
     @IBAction func btnBackClicked(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }
+
+extension ConversationDetailsViewController: ConversationDetailsDelegate {
+    func listAllMessages(data: [MessageModel]) {
+        print(data)
+    }
+    
+    func networkOfflineAlert() {
+        self.showInternetOfflineToast()
+    }
+}
+

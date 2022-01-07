@@ -11,7 +11,7 @@ import Foundation
 struct AllConversationsModel: Codable {
     let conversationID: Int!
     let inboxID: Int!
-    let messages: [MessagesModel]!
+    let messages: [MessageModel]!
     let contact: ContactModel
 
     enum CodingKeys: String, CodingKey {
@@ -22,7 +22,7 @@ struct AllConversationsModel: Codable {
     }
 }
 
-struct MessagesModel: Codable {
+struct MessageModel: Codable {
     let messageID: Int!
     let content: String!
     let messageType: Int!

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD3F1FDF2788B513004F83F5 /* ConversationDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3F1FDE2788B512004F83F5 /* ConversationDetailsViewModel.swift */; };
+		FD3F1FE12788B6A2004F83F5 /* AllMesagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3F1FE02788B6A2004F83F5 /* AllMesagesModel.swift */; };
 		FD76B118270ED60100A49AA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B117270ED60100A49AA1 /* AppDelegate.swift */; };
 		FD76B11A270ED60100A49AA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B119270ED60100A49AA1 /* SceneDelegate.swift */; };
 		FD76B11F270ED60100A49AA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD76B11D270ED60100A49AA1 /* Main.storyboard */; };
@@ -34,7 +36,7 @@
 		FD76B188270EF17000A49AA1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FD76B187270EF17000A49AA1 /* Kingfisher */; };
 		FD76B18F270EF2D500A49AA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B18E270EF2D500A49AA1 /* Constants.swift */; };
 		FD76B197270EF67100A49AA1 /* CreateContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B196270EF67100A49AA1 /* CreateContactModel.swift */; };
-		FD76B19C270EF7CD00A49AA1 /* CreateContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B19B270EF7CD00A49AA1 /* CreateContactViewModel.swift */; };
+		FD76B19C270EF7CD00A49AA1 /* AllConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B19B270EF7CD00A49AA1 /* AllConversationsViewModel.swift */; };
 		FD76B1A2270EF82100A49AA1 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */; };
 		FD76B1AC270EF88A00A49AA1 /* BoxBind.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B1AA270EF88A00A49AA1 /* BoxBind.swift */; };
 		FDC056672731BC8A00544DF4 /* AllConversationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD3F1FDE2788B512004F83F5 /* ConversationDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDetailsViewModel.swift; sourceTree = "<group>"; };
+		FD3F1FE02788B6A2004F83F5 /* AllMesagesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMesagesModel.swift; sourceTree = "<group>"; };
 		FD76B114270ED60100A49AA1 /* chatwoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatwoot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD76B117270ED60100A49AA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD76B119270ED60100A49AA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +106,7 @@
 		FD76B174270EEF6E00A49AA1 /* Date + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		FD76B18E270EF2D500A49AA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FD76B196270EF67100A49AA1 /* CreateContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContactModel.swift; sourceTree = "<group>"; };
-		FD76B19B270EF7CD00A49AA1 /* CreateContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContactViewModel.swift; sourceTree = "<group>"; };
+		FD76B19B270EF7CD00A49AA1 /* AllConversationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllConversationsViewModel.swift; sourceTree = "<group>"; };
 		FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		FD76B1AA270EF88A00A49AA1 /* BoxBind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBind.swift; sourceTree = "<group>"; };
 		FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllConversationsModel.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			children = (
 				FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */,
 				FD76B196270EF67100A49AA1 /* CreateContactModel.swift */,
+				FD3F1FE02788B6A2004F83F5 /* AllMesagesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,7 +234,8 @@
 		FD76B14C270EE4E100A49AA1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FD76B19B270EF7CD00A49AA1 /* CreateContactViewModel.swift */,
+				FD76B19B270EF7CD00A49AA1 /* AllConversationsViewModel.swift */,
+				FD3F1FDE2788B512004F83F5 /* ConversationDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -510,7 +516,7 @@
 				FD76B1A2270EF82100A49AA1 /* ProgressHUD.swift in Sources */,
 				FD76B1AC270EF88A00A49AA1 /* BoxBind.swift in Sources */,
 				FD76B17D270EEF6E00A49AA1 /* StoryBoardConstant.swift in Sources */,
-				FD76B19C270EF7CD00A49AA1 /* CreateContactViewModel.swift in Sources */,
+				FD76B19C270EF7CD00A49AA1 /* AllConversationsViewModel.swift in Sources */,
 				FD76B17F270EEF6E00A49AA1 /* Date + Extension.swift in Sources */,
 				FD76B17C270EEF6E00A49AA1 /* UICollectionView + Extension.swift in Sources */,
 				FD76B178270EEF6E00A49AA1 /* JSONCodable + Extension.swift in Sources */,
@@ -518,6 +524,8 @@
 				FDC056742737CE7400544DF4 /* Int + Extension.swift in Sources */,
 				FD76B118270ED60100A49AA1 /* AppDelegate.swift in Sources */,
 				FD76B179270EEF6E00A49AA1 /* ImageFromName.swift in Sources */,
+				FD3F1FDF2788B513004F83F5 /* ConversationDetailsViewModel.swift in Sources */,
+				FD3F1FE12788B6A2004F83F5 /* AllMesagesModel.swift in Sources */,
 				FD76B18F270EF2D500A49AA1 /* Constants.swift in Sources */,
 				FDC0566C2732B05300544DF4 /* String + Extension.swift in Sources */,
 				FDC056822737EB0700544DF4 /* ConversationDetailsViewController.swift in Sources */,
