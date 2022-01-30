@@ -252,7 +252,7 @@ public class ProgressHUD: UIView {
     private var colorAnimation    = UIColor.lightGray
     private var colorProgress    = UIColor.lightGray
 
-    private var fontStatus        = UIFont.boldSystemFont(ofSize: 24)
+    private var fontStatus        = UIFont.init(name: "HelveticaNeueeTextPro-Bold", size: 24)
     private var imageSuccess    = UIImage.checkmark.withTintColor(UIColor.systemGreen, renderingMode: .alwaysOriginal)
     private var imageError        = UIImage.remove.withTintColor(UIColor.systemRed, renderingMode: .alwaysOriginal)
 

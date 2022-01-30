@@ -17,7 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
+        
         configMessageKitTypes()
+        
+        for family in UIFont.familyNames {
+            print("\(family)")
+
+            for name in UIFont.fontNames(forFamilyName: family) {
+                print("\(name)")
+            }
+        }
+        
         return true
     }
 

@@ -108,7 +108,7 @@ extension AllConversationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let conversationsModel: AllConversationsModel = allConversations[indexPath.row]
         if 0 < conversationsModel.messages.count {
-            let conversationDetailsVC = BasicExampleViewController()
+            let conversationDetailsVC = ConversationDetailsViewController()
             self.navigationController?.pushViewController(conversationDetailsVC, animated: true)
             //conversationDetailsVC.selectedConversation = conversationsModel
         }

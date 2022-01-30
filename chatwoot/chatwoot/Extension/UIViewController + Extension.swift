@@ -86,7 +86,7 @@ extension UIViewController {
         
         let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 22, width: 0, height: 0))
         subtitleLabel.textColor = UIColor.green.withAlphaComponent(0.95)
-        subtitleLabel.font = UIFont.init(name: "HelveticaNeueeTextPro-Roman", size: 10)
+        subtitleLabel.font = UIFont.init(name: "HelveticaNeueeTextPro-Md", size: 10)
         subtitleLabel.text = subtitle
         subtitleLabel.textAlignment = .center
         subtitleLabel.adjustsFontSizeToFitWidth = true
