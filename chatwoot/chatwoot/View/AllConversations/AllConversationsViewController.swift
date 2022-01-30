@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageKit
 
 class AllConversationsViewController: UIViewController {
     
@@ -20,6 +21,16 @@ class AllConversationsViewController: UIViewController {
 
         configureTableView()
         handleAPICalls()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     func configureTableView() {
@@ -97,11 +108,9 @@ extension AllConversationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let conversationsModel: AllConversationsModel = allConversations[indexPath.row]
         if 0 < conversationsModel.messages.count {
-            let conversationDetailsVC = UIStoryboard.Main.conversationDetailsVC() as! ConversationDetailsViewController
-            conversationDetailsVC.modalPresentationStyle = .fullScreen
-            conversationDetailsVC.modalTransitionStyle = .crossDissolve
-            conversationDetailsVC.selectedConversation = conversationsModel
-            self.present(conversationDetailsVC, animated: true, completion: nil)
+            let conversationDetailsVC = BasicExampleViewController()
+            self.navigationController?.pushViewController(conversationDetailsVC, animated: true)
+            //conversationDetailsVC.selectedConversation = conversationsModel
         }
     }
 }

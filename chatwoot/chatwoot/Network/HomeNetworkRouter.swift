@@ -20,9 +20,9 @@ enum HomeNetworkRouter: Router {
         switch self {
         case .listAllConversations: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier())
         case .createContact: return "contacts"
-        case .listAllMessages: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier().appending("/2269/messages"))
+        case .listAllMessages: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier().appending("/2329/messages"))
         }
-        //FIXME:- append conversation id 2269 dynamically
+        //FIXME:- append conversation id 2329 dynamically
     }
     
     var method: String {

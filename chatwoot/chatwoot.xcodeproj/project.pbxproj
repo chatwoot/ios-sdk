@@ -30,7 +30,7 @@
 		FD76B17A270EEF6E00A49AA1 /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B16F270EEF6E00A49AA1 /* AppSession.swift */; };
 		FD76B17B270EEF6E00A49AA1 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B170270EEF6E00A49AA1 /* UIViewController + Extension.swift */; };
 		FD76B17C270EEF6E00A49AA1 /* UICollectionView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B171270EEF6E00A49AA1 /* UICollectionView + Extension.swift */; };
-		FD76B17D270EEF6E00A49AA1 /* StoryBoardConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B172270EEF6E00A49AA1 /* StoryBoardConstant.swift */; };
+		FD76B17D270EEF6E00A49AA1 /* StoryBoardConstant + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B172270EEF6E00A49AA1 /* StoryBoardConstant + Extension.swift */; };
 		FD76B17E270EEF6E00A49AA1 /* UITableView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B173270EEF6E00A49AA1 /* UITableView + Extension.swift */; };
 		FD76B17F270EEF6E00A49AA1 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B174270EEF6E00A49AA1 /* Date + Extension.swift */; };
 		FD76B188270EF17000A49AA1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FD76B187270EF17000A49AA1 /* Kingfisher */; };
@@ -39,6 +39,27 @@
 		FD76B19C270EF7CD00A49AA1 /* AllConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B19B270EF7CD00A49AA1 /* AllConversationsViewModel.swift */; };
 		FD76B1A2270EF82100A49AA1 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */; };
 		FD76B1AC270EF88A00A49AA1 /* BoxBind.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B1AA270EF88A00A49AA1 /* BoxBind.swift */; };
+		FDA7AD5227A5A808009DD8F8 /* InputBarAccessoryView in Frameworks */ = {isa = PBXBuildFile; productRef = FDA7AD5127A5A808009DD8F8 /* InputBarAccessoryView */; };
+		FDA7AD5527A5A938009DD8F8 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA7AD5427A5A938009DD8F8 /* MessageKit */; };
+		FDA7AD5B27A5AE06009DD8F8 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD5A27A5AE06009DD8F8 /* AudioController.swift */; };
+		FDA7AD5F27A5AF72009DD8F8 /* Lorem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD5D27A5AF72009DD8F8 /* Lorem.swift */; };
+		FDA7AD6027A5AF72009DD8F8 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD5E27A5AF72009DD8F8 /* SampleData.swift */; };
+		FDA7AD6227A5AFCA009DD8F8 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD6127A5AFCA009DD8F8 /* AlertService.swift */; };
+		FDA7AD6727A5B01E009DD8F8 /* Settings + UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD6427A5B01E009DD8F8 /* Settings + UserDefaults.swift */; };
+		FDA7AD6827A5B01E009DD8F8 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD6527A5B01E009DD8F8 /* UIColor + Extension.swift */; };
+		FDA7AD6B27A5B07B009DD8F8 /* CustomMessageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD6A27A5B07B009DD8F8 /* CustomMessageFlowLayout.swift */; };
+		FDA7AD7127A5B21D009DD8F8 /* MockSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD6C27A5B21D009DD8F8 /* MockSocket.swift */; };
+		FDA7AD7227A5B21D009DD8F8 /* CustomTextLayoutSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD6D27A5B21D009DD8F8 /* CustomTextLayoutSizeCalculator.swift */; };
+		FDA7AD7327A5B21D009DD8F8 /* MockMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD6E27A5B21D009DD8F8 /* MockMessage.swift */; };
+		FDA7AD7427A5B21D009DD8F8 /* CustomLayoutSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD6F27A5B21D009DD8F8 /* CustomLayoutSizeCalculator.swift */; };
+		FDA7AD7527A5B21D009DD8F8 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD7027A5B21D009DD8F8 /* MockUser.swift */; };
+		FDA7AD7927A5B405009DD8F8 /* sound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FDA7AD7727A5B405009DD8F8 /* sound2.m4a */; };
+		FDA7AD7A27A5B405009DD8F8 /* sound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FDA7AD7827A5B405009DD8F8 /* sound1.m4a */; };
+		FDA7AD7E27A5B4E7009DD8F8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD7D27A5B4E7009DD8F8 /* ChatViewController.swift */; };
+		FDA7AD8027A5B592009DD8F8 /* CameraInputBarAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD7F27A5B592009DD8F8 /* CameraInputBarAccessoryView.swift */; };
+		FDA7AD8227A5B5AE009DD8F8 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD8127A5B5AE009DD8F8 /* CustomCell.swift */; };
+		FDA7AD8427A5BD33009DD8F8 /* BasicExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD8327A5BD33009DD8F8 /* BasicExampleViewController.swift */; };
+		FDA7AD8627A69635009DD8F8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD8527A69635009DD8F8 /* NavigationController.swift */; };
 		FDC056672731BC8A00544DF4 /* AllConversationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */; };
 		FDC0566C2732B05300544DF4 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC0566B2732B05300544DF4 /* String + Extension.swift */; };
 		FDC056742737CE7400544DF4 /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC056732737CE7400544DF4 /* Int + Extension.swift */; };
@@ -101,7 +122,7 @@
 		FD76B16F270EEF6E00A49AA1 /* AppSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
 		FD76B170270EEF6E00A49AA1 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		FD76B171270EEF6E00A49AA1 /* UICollectionView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extension.swift"; sourceTree = "<group>"; };
-		FD76B172270EEF6E00A49AA1 /* StoryBoardConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoardConstant.swift; sourceTree = "<group>"; };
+		FD76B172270EEF6E00A49AA1 /* StoryBoardConstant + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoryBoardConstant + Extension.swift"; sourceTree = "<group>"; };
 		FD76B173270EEF6E00A49AA1 /* UITableView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
 		FD76B174270EEF6E00A49AA1 /* Date + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		FD76B18E270EF2D500A49AA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -109,6 +130,25 @@
 		FD76B19B270EF7CD00A49AA1 /* AllConversationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllConversationsViewModel.swift; sourceTree = "<group>"; };
 		FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		FD76B1AA270EF88A00A49AA1 /* BoxBind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBind.swift; sourceTree = "<group>"; };
+		FDA7AD5A27A5AE06009DD8F8 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		FDA7AD5D27A5AF72009DD8F8 /* Lorem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lorem.swift; sourceTree = "<group>"; };
+		FDA7AD5E27A5AF72009DD8F8 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		FDA7AD6127A5AFCA009DD8F8 /* AlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		FDA7AD6427A5B01E009DD8F8 /* Settings + UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Settings + UserDefaults.swift"; sourceTree = "<group>"; };
+		FDA7AD6527A5B01E009DD8F8 /* UIColor + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		FDA7AD6A27A5B07B009DD8F8 /* CustomMessageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageFlowLayout.swift; sourceTree = "<group>"; };
+		FDA7AD6C27A5B21D009DD8F8 /* MockSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSocket.swift; sourceTree = "<group>"; };
+		FDA7AD6D27A5B21D009DD8F8 /* CustomTextLayoutSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextLayoutSizeCalculator.swift; sourceTree = "<group>"; };
+		FDA7AD6E27A5B21D009DD8F8 /* MockMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMessage.swift; sourceTree = "<group>"; };
+		FDA7AD6F27A5B21D009DD8F8 /* CustomLayoutSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutSizeCalculator.swift; sourceTree = "<group>"; };
+		FDA7AD7027A5B21D009DD8F8 /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
+		FDA7AD7727A5B405009DD8F8 /* sound2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound2.m4a; sourceTree = "<group>"; };
+		FDA7AD7827A5B405009DD8F8 /* sound1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound1.m4a; sourceTree = "<group>"; };
+		FDA7AD7D27A5B4E7009DD8F8 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		FDA7AD7F27A5B592009DD8F8 /* CameraInputBarAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraInputBarAccessoryView.swift; sourceTree = "<group>"; };
+		FDA7AD8127A5B5AE009DD8F8 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		FDA7AD8327A5BD33009DD8F8 /* BasicExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicExampleViewController.swift; sourceTree = "<group>"; };
+		FDA7AD8527A69635009DD8F8 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllConversationsModel.swift; sourceTree = "<group>"; };
 		FDC0566B2732B05300544DF4 /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		FDC056732737CE7400544DF4 /* Int + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
@@ -132,6 +172,8 @@
 			files = (
 				FD76B188270EF17000A49AA1 /* Kingfisher in Frameworks */,
 				FD76B165270EEB6000A49AA1 /* Alamofire in Frameworks */,
+				FDA7AD5227A5A808009DD8F8 /* InputBarAccessoryView in Frameworks */,
+				FDA7AD5527A5A938009DD8F8 /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +225,8 @@
 				FD76B14D270EE51800A49AA1 /* BoxBind */,
 				FD76B14F270EE9EE00A49AA1 /* Network */,
 				FD76B169270EEF6E00A49AA1 /* Extension */,
-				FD76B1A0270EF82100A49AA1 /* Utility Class */,
+				FD76B1A0270EF82100A49AA1 /* UtilityClasses */,
+				FDA7AD6927A5B07B009DD8F8 /* Layout */,
 				FD76B18D270EF2D500A49AA1 /* Constants */,
 				FD76B14E270EE55900A49AA1 /* Resources */,
 				FD76B18C270EF2AE00A49AA1 /* StoryBoard */,
@@ -215,6 +258,11 @@
 		FD76B14A270EE4BA00A49AA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FDA7AD6F27A5B21D009DD8F8 /* CustomLayoutSizeCalculator.swift */,
+				FDA7AD6D27A5B21D009DD8F8 /* CustomTextLayoutSizeCalculator.swift */,
+				FDA7AD6E27A5B21D009DD8F8 /* MockMessage.swift */,
+				FDA7AD6C27A5B21D009DD8F8 /* MockSocket.swift */,
+				FDA7AD7027A5B21D009DD8F8 /* MockUser.swift */,
 				FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */,
 				FD76B196270EF67100A49AA1 /* CreateContactModel.swift */,
 				FD3F1FE02788B6A2004F83F5 /* AllMesagesModel.swift */,
@@ -225,6 +273,11 @@
 		FD76B14B270EE4CE00A49AA1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FDA7AD8527A69635009DD8F8 /* NavigationController.swift */,
+				FDA7AD8327A5BD33009DD8F8 /* BasicExampleViewController.swift */,
+				FDA7AD8127A5B5AE009DD8F8 /* CustomCell.swift */,
+				FDA7AD7F27A5B592009DD8F8 /* CameraInputBarAccessoryView.swift */,
+				FDA7AD7D27A5B4E7009DD8F8 /* ChatViewController.swift */,
 				FDC0567F2737EB0700544DF4 /* AllConversations */,
 				FDC0567D2737EB0700544DF4 /* ConversationDetails */,
 			);
@@ -251,6 +304,7 @@
 		FD76B14E270EE55900A49AA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FDA7AD7627A5B405009DD8F8 /* Sounds */,
 				FDEF5BED273015D30034FA54 /* Fonts */,
 			);
 			name = Resources;
@@ -281,6 +335,8 @@
 		FD76B169270EEF6E00A49AA1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FDA7AD6427A5B01E009DD8F8 /* Settings + UserDefaults.swift */,
+				FDA7AD6527A5B01E009DD8F8 /* UIColor + Extension.swift */,
 				FDC056732737CE7400544DF4 /* Int + Extension.swift */,
 				FDC0566B2732B05300544DF4 /* String + Extension.swift */,
 				FD76B16A270EEF6E00A49AA1 /* UIImageView + Extension.swift */,
@@ -291,7 +347,7 @@
 				FD76B16F270EEF6E00A49AA1 /* AppSession.swift */,
 				FD76B170270EEF6E00A49AA1 /* UIViewController + Extension.swift */,
 				FD76B171270EEF6E00A49AA1 /* UICollectionView + Extension.swift */,
-				FD76B172270EEF6E00A49AA1 /* StoryBoardConstant.swift */,
+				FD76B172270EEF6E00A49AA1 /* StoryBoardConstant + Extension.swift */,
 				FD76B173270EEF6E00A49AA1 /* UITableView + Extension.swift */,
 				FD76B174270EEF6E00A49AA1 /* Date + Extension.swift */,
 			);
@@ -316,14 +372,43 @@
 			path = chatwoot/Constants;
 			sourceTree = SOURCE_ROOT;
 		};
-		FD76B1A0270EF82100A49AA1 /* Utility Class */ = {
+		FD76B1A0270EF82100A49AA1 /* UtilityClasses */ = {
 			isa = PBXGroup;
 			children = (
+				FDA7AD5C27A5AF72009DD8F8 /* Data Generation */,
+				FDA7AD5A27A5AE06009DD8F8 /* AudioController.swift */,
+				FDA7AD6127A5AFCA009DD8F8 /* AlertService.swift */,
 				FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */,
 			);
-			name = "Utility Class";
-			path = "chatwoot/Utility Class";
+			name = UtilityClasses;
+			path = chatwoot/UtilityClasses;
 			sourceTree = SOURCE_ROOT;
+		};
+		FDA7AD5C27A5AF72009DD8F8 /* Data Generation */ = {
+			isa = PBXGroup;
+			children = (
+				FDA7AD5D27A5AF72009DD8F8 /* Lorem.swift */,
+				FDA7AD5E27A5AF72009DD8F8 /* SampleData.swift */,
+			);
+			path = "Data Generation";
+			sourceTree = "<group>";
+		};
+		FDA7AD6927A5B07B009DD8F8 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				FDA7AD6A27A5B07B009DD8F8 /* CustomMessageFlowLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		FDA7AD7627A5B405009DD8F8 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FDA7AD7727A5B405009DD8F8 /* sound2.m4a */,
+				FDA7AD7827A5B405009DD8F8 /* sound1.m4a */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
 		};
 		FDC0567D2737EB0700544DF4 /* ConversationDetails */ = {
 			isa = PBXGroup;
@@ -384,6 +469,8 @@
 			packageProductDependencies = (
 				FD76B164270EEB6000A49AA1 /* Alamofire */,
 				FD76B187270EF17000A49AA1 /* Kingfisher */,
+				FDA7AD5127A5A808009DD8F8 /* InputBarAccessoryView */,
+				FDA7AD5427A5A938009DD8F8 /* MessageKit */,
 			);
 			productName = chatwoot;
 			productReference = FD76B114270ED60100A49AA1 /* chatwoot.app */;
@@ -459,6 +546,8 @@
 			packageReferences = (
 				FD76B163270EEB6000A49AA1 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FD76B186270EF17000A49AA1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FDA7AD5027A5A807009DD8F8 /* XCRemoteSwiftPackageReference "InputBarAccessoryView" */,
+				FDA7AD5327A5A938009DD8F8 /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = FD76B115270ED60100A49AA1 /* Products */;
 			projectDirPath = "";
@@ -477,12 +566,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDEF5BFA273015D30034FA54 /* HelveticaNeueETPro45Light.TTF in Resources */,
+				FDA7AD7927A5B405009DD8F8 /* sound2.m4a in Resources */,
 				FDEF5BFC273015D30034FA54 /* HelveticaNeueETPro56RomIt.TTF in Resources */,
 				FDEF5BF7273015D30034FA54 /* HelveticaNeueETPro65Med.TTF in Resources */,
 				FD76B124270ED60200A49AA1 /* LaunchScreen.storyboard in Resources */,
 				FDEF5BFB273015D30034FA54 /* HelveticaNeueETPro75BdIt.TTF in Resources */,
 				FDEF5BF8273015D30034FA54 /* HelveticaNeueETPro46LightIt.TTF in Resources */,
 				FDEF5BFD273015D30034FA54 /* HelveticaNeueETPro75Bd.TTF in Resources */,
+				FDA7AD7A27A5B405009DD8F8 /* sound1.m4a in Resources */,
 				FDEF5BFE273015D30034FA54 /* HelveticaNeueETPro66MedIt.TTF in Resources */,
 				FD76B121270ED60200A49AA1 /* Assets.xcassets in Resources */,
 				FDEF5BF9273015D30034FA54 /* HelveticaNeueETPro55Roman.TTF in Resources */,
@@ -512,35 +603,52 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD76B17A270EEF6E00A49AA1 /* AppSession.swift in Sources */,
+				FDA7AD7127A5B21D009DD8F8 /* MockSocket.swift in Sources */,
 				FD76B159270EE9EE00A49AA1 /* HomeNetworkRouter.swift in Sources */,
 				FD76B1A2270EF82100A49AA1 /* ProgressHUD.swift in Sources */,
 				FD76B1AC270EF88A00A49AA1 /* BoxBind.swift in Sources */,
-				FD76B17D270EEF6E00A49AA1 /* StoryBoardConstant.swift in Sources */,
+				FDA7AD5F27A5AF72009DD8F8 /* Lorem.swift in Sources */,
+				FD76B17D270EEF6E00A49AA1 /* StoryBoardConstant + Extension.swift in Sources */,
 				FD76B19C270EF7CD00A49AA1 /* AllConversationsViewModel.swift in Sources */,
+				FDA7AD6B27A5B07B009DD8F8 /* CustomMessageFlowLayout.swift in Sources */,
 				FD76B17F270EEF6E00A49AA1 /* Date + Extension.swift in Sources */,
 				FD76B17C270EEF6E00A49AA1 /* UICollectionView + Extension.swift in Sources */,
+				FDA7AD6227A5AFCA009DD8F8 /* AlertService.swift in Sources */,
 				FD76B178270EEF6E00A49AA1 /* JSONCodable + Extension.swift in Sources */,
 				FD76B176270EEF6E00A49AA1 /* ServerConfiguration.swift in Sources */,
+				FDA7AD6027A5AF72009DD8F8 /* SampleData.swift in Sources */,
 				FDC056742737CE7400544DF4 /* Int + Extension.swift in Sources */,
 				FD76B118270ED60100A49AA1 /* AppDelegate.swift in Sources */,
+				FDA7AD8227A5B5AE009DD8F8 /* CustomCell.swift in Sources */,
 				FD76B179270EEF6E00A49AA1 /* ImageFromName.swift in Sources */,
+				FDA7AD5B27A5AE06009DD8F8 /* AudioController.swift in Sources */,
 				FD3F1FDF2788B513004F83F5 /* ConversationDetailsViewModel.swift in Sources */,
 				FD3F1FE12788B6A2004F83F5 /* AllMesagesModel.swift in Sources */,
 				FD76B18F270EF2D500A49AA1 /* Constants.swift in Sources */,
 				FDC0566C2732B05300544DF4 /* String + Extension.swift in Sources */,
 				FDC056822737EB0700544DF4 /* ConversationDetailsViewController.swift in Sources */,
+				FDA7AD8027A5B592009DD8F8 /* CameraInputBarAccessoryView.swift in Sources */,
 				FD76B175270EEF6E00A49AA1 /* UIImageView + Extension.swift in Sources */,
 				FDC056832737EB0700544DF4 /* AllConversationsViewController.swift in Sources */,
+				FDA7AD7527A5B21D009DD8F8 /* MockUser.swift in Sources */,
 				FD76B158270EE9EE00A49AA1 /* NetworkRouter.swift in Sources */,
 				FD76B17B270EEF6E00A49AA1 /* UIViewController + Extension.swift in Sources */,
+				FDA7AD8427A5BD33009DD8F8 /* BasicExampleViewController.swift in Sources */,
 				FDC056672731BC8A00544DF4 /* AllConversationsModel.swift in Sources */,
 				FD76B197270EF67100A49AA1 /* CreateContactModel.swift in Sources */,
+				FDA7AD6827A5B01E009DD8F8 /* UIColor + Extension.swift in Sources */,
 				FD76B11A270ED60100A49AA1 /* SceneDelegate.swift in Sources */,
 				FD76B17E270EEF6E00A49AA1 /* UITableView + Extension.swift in Sources */,
 				FD76B177270EEF6E00A49AA1 /* UIView + Extension.swift in Sources */,
+				FDA7AD7227A5B21D009DD8F8 /* CustomTextLayoutSizeCalculator.swift in Sources */,
+				FDA7AD8627A69635009DD8F8 /* NavigationController.swift in Sources */,
 				FDC056842737EB0700544DF4 /* AllConversationsTableViewCell.swift in Sources */,
+				FDA7AD7427A5B21D009DD8F8 /* CustomLayoutSizeCalculator.swift in Sources */,
 				FD76B15C270EE9EE00A49AA1 /* AFNetwork.swift in Sources */,
 				FD76B157270EE9EE00A49AA1 /* Repository.swift in Sources */,
+				FDA7AD6727A5B01E009DD8F8 /* Settings + UserDefaults.swift in Sources */,
+				FDA7AD7327A5B21D009DD8F8 /* MockMessage.swift in Sources */,
+				FDA7AD7E27A5B4E7009DD8F8 /* ChatViewController.swift in Sources */,
 				FD76B15A270EE9EE00A49AA1 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,6 +826,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUZ4Q23GR8;
 				INFOPLIST_FILE = chatwoot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -736,6 +845,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUZ4Q23GR8;
 				INFOPLIST_FILE = chatwoot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -754,6 +864,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUZ4Q23GR8;
 				INFOPLIST_FILE = chatwootTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -775,6 +886,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUZ4Q23GR8;
 				INFOPLIST_FILE = chatwootTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -795,6 +907,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUZ4Q23GR8;
 				INFOPLIST_FILE = chatwootUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -814,6 +927,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUZ4Q23GR8;
 				INFOPLIST_FILE = chatwootUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -886,6 +1000,22 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		FDA7AD5027A5A807009DD8F8 /* XCRemoteSwiftPackageReference "InputBarAccessoryView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nathantannar4/InputBarAccessoryView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+		FDA7AD5327A5A938009DD8F8 /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -898,6 +1028,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FD76B186270EF17000A49AA1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FDA7AD5127A5A808009DD8F8 /* InputBarAccessoryView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA7AD5027A5A807009DD8F8 /* XCRemoteSwiftPackageReference "InputBarAccessoryView" */;
+			productName = InputBarAccessoryView;
+		};
+		FDA7AD5427A5A938009DD8F8 /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA7AD5327A5A938009DD8F8 /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

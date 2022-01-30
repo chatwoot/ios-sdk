@@ -46,7 +46,7 @@ class AllConversationsTableViewCell: UITableViewCell {
         }
         else {
             let lastMessage: MessageModel = conversationsModel.messages.last!
-            lblAgent.text = lastMessage.sender.senderName
+            lblAgent.text = lastMessage.sender?.senderName
             lblMessage.text = lastMessage.content
             let createdAt = Date(timeIntervalSince1970: lastMessage.createdAt)
             lblDate.text = createdAt.relativeTime

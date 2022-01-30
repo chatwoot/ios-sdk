@@ -24,7 +24,7 @@ class ConversationDetailsViewController: UIViewController {
 
         //FIXME:- AgentName
         let lastMessage: MessageModel = selectedConversation.messages.last!
-        lblAgentName.text = lastMessage.sender.senderName
+        lblAgentName.text = lastMessage.sender?.senderName
         
         handleAPICalls()
     }
