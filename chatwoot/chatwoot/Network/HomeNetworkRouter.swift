@@ -11,6 +11,7 @@ enum HomeNetworkRouter: Router {
     case listAllConversations
     case createContact(params: CreateContactRequest)
     case listAllMessages
+    case sendTextMessage(params: SendTextMessageModelRequest)
 
     var asURL: URL {
         baseURL.appendingPathComponent(path)
@@ -21,6 +22,7 @@ enum HomeNetworkRouter: Router {
         case .listAllConversations: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier())
         case .createContact: return "contacts"
         case .listAllMessages: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier().appending("/2329/messages"))
+        case .sendTextMessage: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier().appending("/2329/messages"))
         }
         //FIXME:- append conversation id 2329 dynamically
     }
@@ -30,6 +32,7 @@ enum HomeNetworkRouter: Router {
         case .listAllConversations: return "GET"
         case .createContact: return "POST"
         case .listAllMessages: return "GET"
+        case .sendTextMessage: return "POST"
         }
     }
     
@@ -46,6 +49,8 @@ enum HomeNetworkRouter: Router {
             break
         case .createContact(let createContactRequest):
             request = try AFHelper.jsonEncode(createContactRequest, into: request)
+        case .sendTextMessage(let sendTextMessageModelRequest):
+            request = try AFHelper.jsonEncode(sendTextMessageModelRequest, into: request)
         }
         return request
     }

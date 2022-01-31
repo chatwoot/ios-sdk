@@ -32,4 +32,8 @@ struct HomeRouter: Repository {
     func listAllMessagesApi(completion: @escaping Response<[MessageModel]>) {
         network.request(route: HomeNetworkRouter.listAllMessages, completion: completion)
     }
+    
+    func sendTextMessageApi(params: SendTextMessageModelRequest,completion: @escaping Response<MessageModel>) {
+        network.request(route: HomeNetworkRouter.sendTextMessage(params: params), completion: completion)
+    }
 }

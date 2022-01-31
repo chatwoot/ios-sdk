@@ -39,6 +39,7 @@
 		FD76B19C270EF7CD00A49AA1 /* AllConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B19B270EF7CD00A49AA1 /* AllConversationsViewModel.swift */; };
 		FD76B1A2270EF82100A49AA1 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */; };
 		FD76B1AC270EF88A00A49AA1 /* BoxBind.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B1AA270EF88A00A49AA1 /* BoxBind.swift */; };
+		FD853E1827A86DC1009E2E7D /* SendTextMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD853E1727A86DC1009E2E7D /* SendTextMessageModel.swift */; };
 		FDA7AD5227A5A808009DD8F8 /* InputBarAccessoryView in Frameworks */ = {isa = PBXBuildFile; productRef = FDA7AD5127A5A808009DD8F8 /* InputBarAccessoryView */; };
 		FDA7AD5527A5A938009DD8F8 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA7AD5427A5A938009DD8F8 /* MessageKit */; };
 		FDA7AD5B27A5AE06009DD8F8 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD5A27A5AE06009DD8F8 /* AudioController.swift */; };
@@ -128,6 +129,7 @@
 		FD76B19B270EF7CD00A49AA1 /* AllConversationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllConversationsViewModel.swift; sourceTree = "<group>"; };
 		FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		FD76B1AA270EF88A00A49AA1 /* BoxBind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBind.swift; sourceTree = "<group>"; };
+		FD853E1727A86DC1009E2E7D /* SendTextMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextMessageModel.swift; sourceTree = "<group>"; };
 		FDA7AD5A27A5AE06009DD8F8 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		FDA7AD5D27A5AF72009DD8F8 /* Lorem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lorem.swift; sourceTree = "<group>"; };
 		FDA7AD5E27A5AF72009DD8F8 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */,
 				FD76B196270EF67100A49AA1 /* CreateContactModel.swift */,
 				FD3F1FE02788B6A2004F83F5 /* AllMesagesModel.swift */,
+				FD853E1727A86DC1009E2E7D /* SendTextMessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				FDA7AD6027A5AF72009DD8F8 /* SampleData.swift in Sources */,
 				FDC056742737CE7400544DF4 /* Int + Extension.swift in Sources */,
 				FD76B118270ED60100A49AA1 /* AppDelegate.swift in Sources */,
+				FD853E1827A86DC1009E2E7D /* SendTextMessageModel.swift in Sources */,
 				FD76B179270EEF6E00A49AA1 /* ImageFromName.swift in Sources */,
 				FDA7AD5B27A5AE06009DD8F8 /* AudioController.swift in Sources */,
 				FD3F1FDF2788B513004F83F5 /* ConversationDetailsViewModel.swift in Sources */,

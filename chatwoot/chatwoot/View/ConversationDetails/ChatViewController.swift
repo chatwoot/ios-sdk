@@ -45,9 +45,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        
         /*
         MockSocket.shared.connect(with: [SampleData.shared.nathan, SampleData.shared.wu])
             .onNewMessage { [weak self] message in
@@ -336,8 +333,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         for component in data {
             let user = SampleData.shared.currentSender
             if let str = component as? String {
-                let message = MockMessage(text: str, user: user, messageId: UUID().uuidString, date: Date())
-                insertMessage(message)
+                conversationDetailsViewModel.sendTextMessageApi(textMessage: str)
             } else if let img = component as? UIImage {
                 let message = MockMessage(image: img, user: user, messageId: UUID().uuidString, date: Date())
                 insertMessage(message)
@@ -354,16 +350,31 @@ extension ChatViewController: ConversationDetailsDelegate {
             let messageDate = Date(timeIntervalSince1970: messageModel.createdAt)
 
             if (messageModel.attachments?.count ?? 0 > 0) {
-                let attachment = messageModel.attachments.first
-                let imageURL: URL = URL(string: attachment!.thumbURL)!
-                let photoMessage = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
-                self.insertMessage(photoMessage)
+                for attachment in messageModel.attachments {
+                    let imageURL: URL = URL(string: attachment.thumbURL)!
+                    let photoMessage = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
+                    self.insertMessage(photoMessage)
+                }
             }
             else {
                 let message = MockMessage(text: messageModel.content, user: sender, messageId: messageID, date: messageDate)
                 self.insertMessage(message)
             }
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.messagesCollectionView.scrollToLastItem()
+        }
+        
+        print(data)
+    }
+    
+    func textMessageDelivered(data: MessageModel) {
+        let sender = MockUser(senderId: String(data.sender.senderID), displayName: data.sender.senderName)
+        let messageID = String(data.messageID)
+        let message = MockMessage(text: data.content, user: sender, messageId: messageID, date: Date().addingTimeInterval(-2))
+        self.insertMessage(message)
+
         print(data)
     }
     
