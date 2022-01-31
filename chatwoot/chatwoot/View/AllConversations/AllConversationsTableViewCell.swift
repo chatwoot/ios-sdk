@@ -13,7 +13,7 @@ class AllConversationsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblAgent  : UILabel!
     @IBOutlet weak var lblMessage : UILabel!
     @IBOutlet weak var lblDate    : UILabel!
-    @IBOutlet weak var lblCount   : UILabel!
+    @IBOutlet weak var lblCount   : PaddingLabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +36,7 @@ class AllConversationsTableViewCell: UITableViewCell {
     }
     
     func configureCell(conversationsModel: AllConversationsModel) {
-        lblCount.text = String(format: "  %@  ", conversationsModel.messages.count.roundedWithAbbreviations)
+        lblCount.text = String(format: "%@", conversationsModel.messages.count.roundedWithAbbreviations)
         lblCount.layer.cornerRadius = (lblCount.frame.height/2)
         //FIXME:- Agent name
         if 0 == conversationsModel.messages.count {

@@ -40,6 +40,7 @@
 		FD76B1A2270EF82100A49AA1 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */; };
 		FD76B1AC270EF88A00A49AA1 /* BoxBind.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76B1AA270EF88A00A49AA1 /* BoxBind.swift */; };
 		FD853E1827A86DC1009E2E7D /* SendTextMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD853E1727A86DC1009E2E7D /* SendTextMessageModel.swift */; };
+		FD853E2427A88809009E2E7D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD853E2327A88809009E2E7D /* PaddingLabel.swift */; };
 		FDA7AD5227A5A808009DD8F8 /* InputBarAccessoryView in Frameworks */ = {isa = PBXBuildFile; productRef = FDA7AD5127A5A808009DD8F8 /* InputBarAccessoryView */; };
 		FDA7AD5527A5A938009DD8F8 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA7AD5427A5A938009DD8F8 /* MessageKit */; };
 		FDA7AD5B27A5AE06009DD8F8 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7AD5A27A5AE06009DD8F8 /* AudioController.swift */; };
@@ -130,6 +131,7 @@
 		FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		FD76B1AA270EF88A00A49AA1 /* BoxBind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBind.swift; sourceTree = "<group>"; };
 		FD853E1727A86DC1009E2E7D /* SendTextMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextMessageModel.swift; sourceTree = "<group>"; };
+		FD853E2327A88809009E2E7D /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		FDA7AD5A27A5AE06009DD8F8 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		FDA7AD5D27A5AF72009DD8F8 /* Lorem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lorem.swift; sourceTree = "<group>"; };
 		FDA7AD5E27A5AF72009DD8F8 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				FDA7AD5C27A5AF72009DD8F8 /* Data Generation */,
 				FDA7AD5A27A5AE06009DD8F8 /* AudioController.swift */,
 				FDA7AD6127A5AFCA009DD8F8 /* AlertService.swift */,
+				FD853E2327A88809009E2E7D /* PaddingLabel.swift */,
 				FD76B1A1270EF82100A49AA1 /* ProgressHUD.swift */,
 			);
 			name = UtilityClasses;
@@ -643,6 +646,7 @@
 				FD76B197270EF67100A49AA1 /* CreateContactModel.swift in Sources */,
 				FDA7AD6827A5B01E009DD8F8 /* UIColor + Extension.swift in Sources */,
 				FD76B11A270ED60100A49AA1 /* SceneDelegate.swift in Sources */,
+				FD853E2427A88809009E2E7D /* PaddingLabel.swift in Sources */,
 				FD76B17E270EEF6E00A49AA1 /* UITableView + Extension.swift in Sources */,
 				FD76B177270EEF6E00A49AA1 /* UIView + Extension.swift in Sources */,
 				FDA7AD7227A5B21D009DD8F8 /* CustomTextLayoutSizeCalculator.swift in Sources */,

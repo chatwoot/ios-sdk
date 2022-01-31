@@ -163,11 +163,12 @@
                                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 100 " textAlignment="justified" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="lcc-bu-NqP">
-                                                                                    <rect key="frame" x="342.5" y="47.5" width="31.5" height="31.5"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 " textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="lcc-bu-NqP" customClass="PaddingLabel" customModule="chatwoot" customModuleProvider="target">
+                                                                                    <rect key="frame" x="344" y="47.5" width="30" height="30"/>
                                                                                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" secondItem="lcc-bu-NqP" secondAttribute="height" multiplier="1:1" id="Wp7-FY-B2L"/>
+                                                                                        <constraint firstAttribute="width" secondItem="lcc-bu-NqP" secondAttribute="height" multiplier="1:1" id="7r9-m4-7kd"/>
+                                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="BR7-WR-LwP"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeueeTextPro-Md" family="Helvetica Neue eText Pro" pointSize="13"/>
                                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
