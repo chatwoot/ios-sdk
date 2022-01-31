@@ -90,9 +90,6 @@ extension CameraInputBarAccessoryViewDelegate {
     
 }
 
-
-
-
 extension CameraInputBarAccessoryView : UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
     @objc  func showImagePickerControllerActionSheet()  {

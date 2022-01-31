@@ -30,6 +30,7 @@ struct MessageModel: Codable {
     let createdAt: TimeInterval!
     let conversationID: Int!
     let sender: SenderModel!
+    let attachments: [AttachmentModel]!
     
     enum CodingKeys: String, CodingKey {
         case messageID = "id"
@@ -39,6 +40,7 @@ struct MessageModel: Codable {
         case createdAt = "created_at"
         case conversationID = "conversation_id"
         case sender = "sender"
+        case attachments = "attachments"
     }
 }
 
@@ -71,3 +73,25 @@ struct ContactModel: Codable {
         case lastActivityAt = "last_activity_at"
     }
 }
+
+struct AttachmentModel: Codable {
+    let attachmentID: Int!
+    let messageID: Int!
+    let fileType: String!
+    let accountID: Int!
+    let fileExtension: String!
+    let dataURL: String!
+    let thumbURL: String!
+
+    enum CodingKeys: String, CodingKey {
+        case attachmentID = "id"
+        case messageID = "message_id"
+        case fileType = "file_type"
+        case accountID = "account_id"
+        case fileExtension = "extension"
+        case dataURL = "data_url"
+        case thumbURL = "thumb_url"
+    }
+}
+
+

@@ -50,7 +50,8 @@ final internal class SampleData {
 
     let system = MockUser(senderId: "000000", displayName: "System")
     let nathan = MockUser(senderId: "000001", displayName: "Nathan Tannar")
-    let steven = MockUser(senderId: "000002", displayName: "Steven Deutsch")
+    //FIXME:- Mock User
+    let steven = MockUser(senderId: String(GetUserDefaults.contactInfo.contactID), displayName: "Shamsu")
     let wu = MockUser(senderId: "000003", displayName: "Wu Zhong")
 
     lazy var senders = [nathan, steven, wu]
@@ -267,14 +268,17 @@ final internal class SampleData {
 
     func getAvatarFor(sender: SenderType) -> Avatar {
         let firstName = sender.displayName.components(separatedBy: " ").first
-        let lastName = sender.displayName.components(separatedBy: " ").first
-        let initials = "\(firstName?.first ?? "A")\(lastName?.first ?? "A")"
+        var lastName = sender.displayName.components(separatedBy: " ").last
+        if sender.displayName.components(separatedBy: " ").count <= 1 {
+            lastName = ""
+        }
+        let initials = "\(firstName?.first ?? " ")\(lastName?.first ?? " ")".trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         switch sender.senderId {
         case "000001":
             return Avatar(image: #imageLiteral(resourceName: "Nathan-Tannar"), initials: initials)
         case "000002":
             return Avatar(image: #imageLiteral(resourceName: "Steven-Deutsch"), initials: initials)
-        case "000003":
+        case String(GetUserDefaults.contactInfo.contactID):
             return Avatar(image: #imageLiteral(resourceName: "Wu-Zhong"), initials: initials)
         case "000000":
             return Avatar(image: nil, initials: "SS")

@@ -12,9 +12,14 @@ import Kingfisher
 import InputBarAccessoryView
 
 class ConversationDetailsViewController: ChatViewController {
+    var selectedConversation: AllConversationsModel! = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTitleView(title: "Chatwoot", subtitle: "Online")
+        
+        //FIXME:- AgentName
+        let lastMessage: MessageModel = selectedConversation.messages.last!        
+        updateTitleView(title: lastMessage.sender?.senderName ?? "Chatwoot", subtitle: "Online")
     }
     
     override func configureMessageCollectionView() {
@@ -37,7 +42,6 @@ class ConversationDetailsViewController: ChatViewController {
         messageInputBar.sendButton.setTitleColor(
             UIColor.primaryColor.withAlphaComponent(0.3),
             for: .highlighted)
-        
         
         messageInputBar.isTranslucent = true
         messageInputBar.separatorLine.isHidden = true

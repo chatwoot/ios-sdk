@@ -62,7 +62,6 @@
 		FDC056672731BC8A00544DF4 /* AllConversationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */; };
 		FDC0566C2732B05300544DF4 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC0566B2732B05300544DF4 /* String + Extension.swift */; };
 		FDC056742737CE7400544DF4 /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC056732737CE7400544DF4 /* Int + Extension.swift */; };
-		FDC056822737EB0700544DF4 /* ConversationDetailsTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC0567E2737EB0700544DF4 /* ConversationDetailsTemp.swift */; };
 		FDC056832737EB0700544DF4 /* AllConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC056802737EB0700544DF4 /* AllConversationsViewController.swift */; };
 		FDC056842737EB0700544DF4 /* AllConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC056812737EB0700544DF4 /* AllConversationsTableViewCell.swift */; };
 		FDEF5BF7273015D30034FA54 /* HelveticaNeueETPro65Med.TTF in Resources */ = {isa = PBXBuildFile; fileRef = FDEF5BEF273015D30034FA54 /* HelveticaNeueETPro65Med.TTF */; };
@@ -150,7 +149,6 @@
 		FDC056662731BC8A00544DF4 /* AllConversationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllConversationsModel.swift; sourceTree = "<group>"; };
 		FDC0566B2732B05300544DF4 /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		FDC056732737CE7400544DF4 /* Int + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
-		FDC0567E2737EB0700544DF4 /* ConversationDetailsTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDetailsTemp.swift; sourceTree = "<group>"; };
 		FDC056802737EB0700544DF4 /* AllConversationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllConversationsViewController.swift; sourceTree = "<group>"; };
 		FDC056812737EB0700544DF4 /* AllConversationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllConversationsTableViewCell.swift; sourceTree = "<group>"; };
 		FDEF5BEF273015D30034FA54 /* HelveticaNeueETPro65Med.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeueETPro65Med.TTF; sourceTree = "<group>"; };
@@ -418,7 +416,6 @@
 			children = (
 				FDA7AD8327A5BD33009DD8F8 /* ConversationDetailsViewController.swift */,
 				FDA7AD7D27A5B4E7009DD8F8 /* ChatViewController.swift */,
-				FDC0567E2737EB0700544DF4 /* ConversationDetailsTemp.swift */,
 			);
 			path = ConversationDetails;
 			sourceTree = "<group>";
@@ -631,7 +628,6 @@
 				FD3F1FE12788B6A2004F83F5 /* AllMesagesModel.swift in Sources */,
 				FD76B18F270EF2D500A49AA1 /* Constants.swift in Sources */,
 				FDC0566C2732B05300544DF4 /* String + Extension.swift in Sources */,
-				FDC056822737EB0700544DF4 /* ConversationDetailsTemp.swift in Sources */,
 				FD76B175270EEF6E00A49AA1 /* UIImageView + Extension.swift in Sources */,
 				FDA7AD8A27A6D457009DD8F8 /* CameraInputBarAccessoryView.swift in Sources */,
 				FDC056832737EB0700544DF4 /* AllConversationsViewController.swift in Sources */,

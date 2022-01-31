@@ -27,12 +27,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     }()
 
     // MARK: - Private properties
-
-    private let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter
-    }()
+    
+    private var conversationDetailsViewModel = ConversationDetailsViewModel()
 
     // MARK: - Lifecycle
 
@@ -41,17 +37,23 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         
         configureMessageCollectionView()
         configureMessageInputBar()
-        loadFirstMessages()
         title = "Chatwoot"
+        conversationDetailsViewModel.delegate = self
+        conversationDetailsViewModel.listAllMessagesApi()
+        //loadFirstMessages()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
+        
+        /*
         MockSocket.shared.connect(with: [SampleData.shared.nathan, SampleData.shared.wu])
             .onNewMessage { [weak self] message in
                 self?.insertMessage(message)
         }
+         */
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -78,15 +80,17 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     }
     
     @objc func loadMoreMessages() {
-        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1) {
-            SampleData.shared.getMessages(count: 20) { messages in
-                DispatchQueue.main.async {
-                    self.messageList.insert(contentsOf: messages, at: 0)
-                    self.messagesCollectionView.reloadDataAndKeepOffset()
-                    self.refreshControl.endRefreshing()
-                }
-            }
-        }
+//        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1) {
+//            SampleData.shared.getMessages(count: 20) { messages in
+//                DispatchQueue.main.async {
+//                    self.messageList.insert(contentsOf: messages, at: 0)
+//                    self.messagesCollectionView.reloadDataAndKeepOffset()
+//                    self.refreshControl.endRefreshing()
+//                }
+//            }
+//        }
+        
+        self.refreshControl.endRefreshing()
     }
     
     func configureMessageCollectionView() {
@@ -141,9 +145,9 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     // MARK: - MessagesDataSource
 
     func currentSender() -> SenderType {
-        return SampleData.shared.currentSender
+        return MockUser(senderId: String(GetUserDefaults.contactInfo.contactID), displayName:GetUserDefaults.contactInfo.contactName)
     }
-
+    
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messageList.count
     }
@@ -169,7 +173,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     }
 
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        let dateString = formatter.string(from: message.sentDate)
+        let dateString = message.sentDate.utcToLocalString().utcToLocal().relativeTimeForChat
         return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
     }
     
@@ -339,5 +343,31 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 insertMessage(message)
             }
         }
+    }
+}
+
+extension ChatViewController: ConversationDetailsDelegate {
+    func listAllMessages(data: [MessageModel]) {
+        for messageModel in data {
+            let sender = MockUser(senderId: String(messageModel.sender.senderID), displayName: messageModel.sender.senderName)
+            let messageID = String(messageModel.messageID)
+            let messageDate = Date(timeIntervalSince1970: messageModel.createdAt)
+
+            if (messageModel.attachments?.count ?? 0 > 0) {
+                let attachment = messageModel.attachments.first
+                let imageURL: URL = URL(string: attachment!.thumbURL)!
+                let photoMessage = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
+                self.insertMessage(photoMessage)
+            }
+            else {
+                let message = MockMessage(text: messageModel.content, user: sender, messageId: messageID, date: messageDate)
+                self.insertMessage(message)
+            }
+        }
+        print(data)
+    }
+    
+    func networkOfflineAlert() {
+        self.showInternetOfflineToast()
     }
 }

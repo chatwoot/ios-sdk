@@ -116,11 +116,6 @@ public extension ProgressHUD {
         set { shared.colorProgress = newValue }
     }
 
-    class var fontStatus: UIFont {
-        get { shared.fontStatus }
-        set { shared.fontStatus = newValue }
-    }
-
     class var imageSuccess: UIImage {
         get { shared.imageSuccess }
         set { shared.imageSuccess = newValue }
