@@ -48,11 +48,13 @@ struct SenderModel: Codable {
     let senderID: Int!
     let senderName: String!
     let pubsubToken: String!
+    let thumbnail: String!
     
     enum CodingKeys: String, CodingKey {
         case senderID = "id"
         case senderName = "name"
         case pubsubToken = "pubsub_token"
+        case thumbnail = "thumbnail"
     }
 }
 

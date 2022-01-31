@@ -18,7 +18,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     /// The `AudioController` control the AVAudioPlayer state (play, pause, stop) and update audio cell UI accordingly.
     lazy var audioController = AudioController(messageCollectionView: messagesCollectionView)
 
-    lazy var messageList: [MockMessage] = []
+    public lazy var messageList: [MockMessage] = []
     
     private(set) lazy var refreshControl: UIRefreshControl = {
         let control = UIRefreshControl()
@@ -345,7 +345,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 extension ChatViewController: ConversationDetailsDelegate {
     func listAllMessages(data: [MessageModel]) {
         for messageModel in data {
-            let sender = MockUser(senderId: String(messageModel.sender.senderID), displayName: messageModel.sender.senderName)
+            let sender = MockUser(senderId: String(messageModel.sender.senderID), displayName: messageModel.sender.senderName, userImage:messageModel.sender.thumbnail)
             let messageID = String(messageModel.messageID)
             let messageDate = Date(timeIntervalSince1970: messageModel.createdAt)
 
@@ -370,7 +370,7 @@ extension ChatViewController: ConversationDetailsDelegate {
     }
     
     func textMessageDelivered(data: MessageModel) {
-        let sender = MockUser(senderId: String(data.sender.senderID), displayName: data.sender.senderName)
+        let sender = MockUser(senderId: String(data.sender.senderID), displayName: data.sender.senderName, userImage:data.sender.thumbnail)
         let messageID = String(data.messageID)
         let message = MockMessage(text: data.content, user: sender, messageId: messageID, date: Date().addingTimeInterval(-2))
         self.insertMessage(message)
