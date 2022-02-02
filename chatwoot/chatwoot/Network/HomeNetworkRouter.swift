@@ -10,8 +10,8 @@ import Foundation
 enum HomeNetworkRouter: Router {
     case listAllConversations
     case createContact(params: CreateContactRequest)
-    case listAllMessages
-    case sendTextMessage(params: SendTextMessageModelRequest)
+    case listAllMessages(conversationID: String)
+    case sendTextMessage(conversationID: String, params: SendTextMessageModelRequest)
 
     var asURL: URL {
         baseURL.appendingPathComponent(path)
@@ -19,20 +19,23 @@ enum HomeNetworkRouter: Router {
     
     var path: String {
         switch self {
-        case .listAllConversations: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier())
-        case .createContact: return "contacts"
-        case .listAllMessages: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier().appending("/2329/messages"))
-        case .sendTextMessage: return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier().appending("/2329/messages"))
+        case .listAllConversations:
+            return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier())
+        case .createContact:
+            return "contacts"
+        case .listAllMessages(let conversationID):
+            return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier() + "/" + conversationID + "/messages")
+        case .sendTextMessage(let conversationID, _):
+            return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier() + "/" + conversationID + "/messages")
         }
-        //FIXME:- append conversation id 2329 dynamically
     }
     
     var method: String {
         switch self {
         case .listAllConversations: return "GET"
         case .createContact: return "POST"
-        case .listAllMessages: return "GET"
-        case .sendTextMessage: return "POST"
+        case .listAllMessages(_): return "GET"
+        case .sendTextMessage(_, _): return "POST"
         }
     }
     
@@ -45,11 +48,11 @@ enum HomeNetworkRouter: Router {
         switch self {
         case .listAllConversations:
             break
-        case .listAllMessages:
+        case .listAllMessages(_):
             break
         case .createContact(let createContactRequest):
             request = try AFHelper.jsonEncode(createContactRequest, into: request)
-        case .sendTextMessage(let sendTextMessageModelRequest):
+        case .sendTextMessage(_, let sendTextMessageModelRequest):
             request = try AFHelper.jsonEncode(sendTextMessageModelRequest, into: request)
         }
         return request

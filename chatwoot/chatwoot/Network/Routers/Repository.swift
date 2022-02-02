@@ -29,11 +29,11 @@ struct HomeRouter: Repository {
         network.request(route: HomeNetworkRouter.createContact(params: params), completion: completion)
     }
     
-    func listAllMessagesApi(completion: @escaping Response<[MessageModel]>) {
-        network.request(route: HomeNetworkRouter.listAllMessages, completion: completion)
+    func listAllMessagesApi(conversationID: String, completion: @escaping Response<[MessageModel]>) {
+        network.request(route: HomeNetworkRouter.listAllMessages(conversationID: conversationID), completion: completion)
     }
     
-    func sendTextMessageApi(params: SendTextMessageModelRequest,completion: @escaping Response<MessageModel>) {
-        network.request(route: HomeNetworkRouter.sendTextMessage(params: params), completion: completion)
+    func sendTextMessageApi(conversationID: String, params: SendTextMessageModelRequest,completion: @escaping Response<MessageModel>) {
+        network.request(route: HomeNetworkRouter.sendTextMessage(conversationID: conversationID, params: params), completion: completion)
     }
 }

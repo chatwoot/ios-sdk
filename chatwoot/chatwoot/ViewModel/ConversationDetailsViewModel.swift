@@ -17,10 +17,10 @@ protocol ConversationDetailsDelegate: AnyObject {
 class ConversationDetailsViewModel: NSObject {
     weak var delegate: ConversationDetailsDelegate?
     
-    func listAllMessagesApi() {
+    func listAllMessagesApi(conversationID: String) {
         if (NetworkReachabilityManager()!.isReachable) {
             ProgressHUD.show()
-            HomeRouter().listAllMessagesApi() { [ weak self] result in
+            HomeRouter().listAllMessagesApi(conversationID: conversationID) { [ weak self] result in
                 switch result {
                 case .success(let result):
                     self?.delegate?.listAllMessages(data: result)
@@ -36,11 +36,11 @@ class ConversationDetailsViewModel: NSObject {
         }
     }
     
-    func sendTextMessageApi(textMessage: String) {
+    func sendTextMessageApi(conversationID: String, textMessage: String) {
         if (NetworkReachabilityManager()!.isReachable) {
             let sendTextMessageParam = SendTextMessageModelRequest(content: textMessage)
             ProgressHUD.show()
-            HomeRouter().sendTextMessageApi(params: sendTextMessageParam) { [ weak self] result in
+            HomeRouter().sendTextMessageApi(conversationID: conversationID, params: sendTextMessageParam) { [ weak self] result in
                 switch result {
                 case .success(let result):
                     self?.delegate?.textMessageDelivered(data: result)

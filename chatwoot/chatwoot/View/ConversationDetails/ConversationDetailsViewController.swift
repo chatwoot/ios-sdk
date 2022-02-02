@@ -12,8 +12,6 @@ import Kingfisher
 import InputBarAccessoryView
 
 class ConversationDetailsViewController: ChatViewController {
-    var selectedConversation: AllConversationsModel! = nil
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

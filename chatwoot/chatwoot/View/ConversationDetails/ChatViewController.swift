@@ -14,6 +14,7 @@ import InputBarAccessoryView
 class ChatViewController: MessagesViewController, MessagesDataSource {
 
     // MARK: - Public properties
+    public var selectedConversation: AllConversationsModel! = nil
 
     /// The `AudioController` control the AVAudioPlayer state (play, pause, stop) and update audio cell UI accordingly.
     lazy var audioController = AudioController(messageCollectionView: messagesCollectionView)
@@ -39,7 +40,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         configureMessageInputBar()
         title = "Chatwoot"
         conversationDetailsViewModel.delegate = self
-        conversationDetailsViewModel.listAllMessagesApi()
+        conversationDetailsViewModel.listAllMessagesApi(conversationID: String(selectedConversation.conversationID))
         //loadFirstMessages()
     }
     
@@ -333,7 +334,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         for component in data {
             let user = SampleData.shared.currentSender
             if let str = component as? String {
-                conversationDetailsViewModel.sendTextMessageApi(textMessage: str)
+                conversationDetailsViewModel.sendTextMessageApi(conversationID: String(selectedConversation.conversationID), textMessage: str)
             } else if let img = component as? UIImage {
                 let message = MockMessage(image: img, user: user, messageId: UUID().uuidString, date: Date())
                 insertMessage(message)
