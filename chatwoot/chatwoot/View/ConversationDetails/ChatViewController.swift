@@ -352,9 +352,23 @@ extension ChatViewController: ConversationDetailsDelegate {
 
             if (messageModel.attachments?.count ?? 0 > 0) {
                 for attachment in messageModel.attachments {
-                    let imageURL: URL = URL(string: attachment.thumbURL)!
-                    let photoMessage = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
-                    self.insertMessage(photoMessage)
+                    if let thumbURL = attachment.thumbURL {
+                        if  thumbURL.count > 0 {
+                            let imageURL: URL = URL(string: thumbURL)!
+                            let photoMessage = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
+                            self.insertMessage(photoMessage)
+                        }
+                        else if let dataURL = attachment.dataURL {
+                            let audioURL = URL(string: dataURL)
+                            let audioMessage = MockMessage(audioURL: audioURL!, user: sender, messageId:messageID , date: messageDate)
+                            self.insertMessage(audioMessage)
+                        }
+                    }
+                    else if let dataURL = attachment.dataURL {
+                        let audioURL = URL(string: dataURL)
+                        let audioMessage = MockMessage(audioURL: audioURL!, user: sender, messageId:messageID , date: messageDate)
+                        self.insertMessage(audioMessage)
+                    }
                 }
             }
             else {

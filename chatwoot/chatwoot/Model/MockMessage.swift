@@ -70,10 +70,10 @@ private struct MockAudioItem: AudioItem {
         self.url = url
         self.size = CGSize(width: 160, height: 35)
         // compute duration
-        let audioAsset = AVURLAsset(url: url)
-        self.duration = Float(CMTimeGetSeconds(audioAsset.duration))
+        //let audioAsset = AVURLAsset(url: url)
+        self.duration = 4
+        //FIXME:- Duration of audio
     }
-
 }
 
 struct MockContactItem: ContactItem {
