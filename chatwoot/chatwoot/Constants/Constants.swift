@@ -32,5 +32,9 @@ extension Constants {
     enum Messages {
         static let noConversationFound = "No conversation found"
         static let noMessagesFound = "No Messages"
+        static let noContentFound = "No content available"
+        static let picMessage = "Picture message"
+        static let audioMessage = "Audio message"
+        static let fileMessage = "File message"
     }
 }

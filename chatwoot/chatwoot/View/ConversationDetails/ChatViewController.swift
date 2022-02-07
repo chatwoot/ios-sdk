@@ -341,6 +341,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 
 extension ChatViewController: ConversationDetailsDelegate {
     func listAllMessages(data: [MessageModel]) {
+        var message: MockMessage? = nil
         for messageModel in data {
             let sender = MockUser(senderId: String(messageModel.sender.senderID), displayName: messageModel.sender.senderName, userImage:messageModel.sender.thumbnail)
             let messageID = String(messageModel.messageID)
@@ -351,25 +352,31 @@ extension ChatViewController: ConversationDetailsDelegate {
                     if let thumbURL = attachment.thumbURL {
                         if  thumbURL.count > 0 {
                             let imageURL: URL = URL(string: thumbURL)!
-                            let photoMessage = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
-                            self.insertMessage(photoMessage)
+                            message = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
                         }
                         else if let dataURL = attachment.dataURL {
                             let audioURL = URL(string: dataURL)
-                            let audioMessage = MockMessage(audioURL: audioURL!, user: sender, messageId:messageID , date: messageDate)
-                            self.insertMessage(audioMessage)
+                            message = MockMessage(audioURL: audioURL!, user: sender, messageId:messageID , date: messageDate)
                         }
                     }
                     else if let dataURL = attachment.dataURL {
                         let audioURL = URL(string: dataURL)
-                        let audioMessage = MockMessage(audioURL: audioURL!, user: sender, messageId:messageID , date: messageDate)
-                        self.insertMessage(audioMessage)
+                        message = MockMessage(audioURL: audioURL!, user: sender, messageId:messageID , date: messageDate)
                     }
                 }
             }
             else {
-                let message = MockMessage(text: messageModel.content, user: sender, messageId: messageID, date: messageDate)
-                self.insertMessage(message)
+                if (messageModel.content != nil) {
+                    message = MockMessage(text: messageModel.content, user: sender, messageId: messageID, date: messageDate)
+                }
+                else {
+                    message = MockMessage(text: Constants.Messages.noContentFound, user: sender, messageId: messageID, date: messageDate)
+                }
+            }
+            
+            //insert and update the message.
+            if let chatMessage = message {
+                self.insertMessage(chatMessage)
             }
         }
         
