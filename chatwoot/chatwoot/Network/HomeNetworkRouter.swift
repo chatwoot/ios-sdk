@@ -20,13 +20,13 @@ enum HomeNetworkRouter: Router {
     var path: String {
         switch self {
         case .listAllConversations:
-            return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier())
+            return "contacts/".appending(getContactIdentifier() + "/conversations")
         case .createContact:
             return "contacts"
         case .listAllMessages(let conversationID):
-            return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier() + "/" + conversationID + "/messages")
+            return "contacts/".appending(getContactIdentifier() + "/conversations" + "/" + conversationID + "/messages")
         case .sendTextMessage(let conversationID, _):
-            return "contacts/".appending("{contact_identifier}/conversations".prepareContactIdentifier() + "/" + conversationID + "/messages")
+            return "contacts/".appending(getContactIdentifier() + "/conversations" + "/" + conversationID + "/messages")
         }
     }
     
@@ -58,5 +58,13 @@ enum HomeNetworkRouter: Router {
         return request
     }
     
-  
+    func getContactIdentifier() -> String {
+        var contactIdentifier = ""
+        if let contactInfo = GetUserDefaults.contactInfo {
+            if let sourceID = contactInfo.sourceID {
+                contactIdentifier = sourceID
+            }
+        }
+        return contactIdentifier
+    }
 }
