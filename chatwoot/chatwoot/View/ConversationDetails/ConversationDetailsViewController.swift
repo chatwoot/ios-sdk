@@ -17,7 +17,7 @@ class ConversationDetailsViewController: ChatViewController {
         
         //FIXME:- AgentName
         let lastMessage: MessageModel = selectedConversation.messages.last!        
-        updateTitleView(title: lastMessage.sender?.senderName ?? "Chatwoot", subtitle: "Online")
+        updateTitleView(title: lastMessage.sender?.senderName ?? "Chatwoot", subtitle: "")
     }
     
     override func configureMessageCollectionView() {

@@ -161,10 +161,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         return nil
     }
 
-    func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        return NSAttributedString(string: "Read", attributes: [NSAttributedString.Key.font: UIFont.init(name: "HelveticaNeueeTextPro-Bold", size: 10) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-    }
-
     func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let name = message.sender.displayName
         return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
