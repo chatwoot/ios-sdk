@@ -12,6 +12,7 @@ protocol ConversationDetailsDelegate: AnyObject {
     func listAllMessages(data: [MessageModel])
     func networkOfflineAlert()
     func textMessageDelivered(data: MessageModel)
+    func imageMessageDelivered(data: MessageModel)
 }
 
 class ConversationDetailsViewModel: NSObject {
@@ -44,6 +45,25 @@ class ConversationDetailsViewModel: NSObject {
                 switch result {
                 case .success(let result):
                     self?.delegate?.textMessageDelivered(data: result)
+                    ProgressHUD.dismiss()
+                case .failure( _):
+                    ProgressHUD.dismiss()
+                    break
+                }
+            }
+        }
+        else {
+            self.delegate?.networkOfflineAlert()
+        }
+    }
+    
+    func sendImageAPI(params: [String: Any], data: [UploadData], conversationID: String) {
+        if (NetworkReachabilityManager()!.isReachable) {
+            ProgressHUD.show()
+            HomeRouter().uploadImage(params: params, data: data, conversationID: conversationID) { [ weak self]  result in
+                switch result {
+                case .success(let result):
+                    self?.delegate?.imageMessageDelivered(data: result)
                     ProgressHUD.dismiss()
                 case .failure( _):
                     ProgressHUD.dismiss()

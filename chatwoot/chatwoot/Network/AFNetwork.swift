@@ -48,7 +48,7 @@ struct AFNetwork: NetworkService {
         }
     }
     
-    func requestUpload<T: ResponseType>(param params: [String: Any] ,url: String,data: [UploadData],isUpdate: Bool, completion: @escaping (CompletionType<T>) -> Void) {
+    func requestUpload<T: ResponseType>(param params: [String: Any] ,url: String,data: [UploadData], completion: @escaping (CompletionType<T>) -> Void) {
         AF.upload(multipartFormData: { multipartFormData in
             
             for image in data {
@@ -89,7 +89,7 @@ struct AFNetwork: NetworkService {
                     }
                 }
             }
-        },to: "\(ServerConfig().baseURL.absoluteString)\(url)", usingThreshold: UInt64.init(),method: isUpdate ? .put : .post, headers: ["Content-type": "application/x-www-form-urlencoded","api_access_token": (GetUserDefaults.contactInfo.pubsubToken ?? ""),]).responseDecodable(decoder: JSONDecoder.custom()) { (response: AFResponse<T>) in
+        },to: "\(ServerConfig().baseURL.absoluteString)\(url)", usingThreshold: UInt64.init(),method: .post, headers: ["Content-type": "multipart/form-data",]).responseDecodable(decoder: JSONDecoder.custom()) { (response: AFResponse<T>) in
             self.handleResponse(response, completion: completion)
         }
         

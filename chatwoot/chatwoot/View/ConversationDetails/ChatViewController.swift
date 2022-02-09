@@ -139,6 +139,10 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         
         return messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath)
     }
+    
+    public func sendImageToAPI(imageData: UploadData) {
+        conversationDetailsViewModel.sendImageAPI(params: [String : Any](), data: [imageData], conversationID: String(selectedConversation.conversationID))
+    }
 
     // MARK: - MessagesDataSource
 
@@ -396,6 +400,10 @@ extension ChatViewController: ConversationDetailsDelegate {
         print(data)
     }
     
+    func imageMessageDelivered(data: MessageModel) {
+        print(data)
+    }
+
     func networkOfflineAlert() {
         self.showInternetOfflineToast()
     }

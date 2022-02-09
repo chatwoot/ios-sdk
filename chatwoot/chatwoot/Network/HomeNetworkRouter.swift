@@ -12,6 +12,7 @@ enum HomeNetworkRouter: Router {
     case createContact(params: CreateContactRequest)
     case listAllMessages(conversationID: String)
     case sendTextMessage(conversationID: String, params: SendTextMessageModelRequest)
+    case uploadImage(conversationID: String)
 
     var asURL: URL {
         baseURL.appendingPathComponent(path)
@@ -27,6 +28,8 @@ enum HomeNetworkRouter: Router {
             return "contacts/".appending(getContactIdentifier() + "/conversations" + "/" + conversationID + "/messages")
         case .sendTextMessage(let conversationID, _):
             return "contacts/".appending(getContactIdentifier() + "/conversations" + "/" + conversationID + "/messages")
+        case .uploadImage(let conversationID):
+            return "contacts/".appending(getContactIdentifier() + "/conversations" + "/" + conversationID + "/messages")
         }
     }
     
@@ -36,6 +39,7 @@ enum HomeNetworkRouter: Router {
         case .createContact: return "POST"
         case .listAllMessages(_): return "GET"
         case .sendTextMessage(_, _): return "POST"
+        case .uploadImage(_): return "POST"
         }
     }
     
@@ -54,6 +58,8 @@ enum HomeNetworkRouter: Router {
             request = try AFHelper.jsonEncode(createContactRequest, into: request)
         case .sendTextMessage(_, let sendTextMessageModelRequest):
             request = try AFHelper.jsonEncode(sendTextMessageModelRequest, into: request)
+        case .uploadImage(_):
+            break
         }
         return request
     }

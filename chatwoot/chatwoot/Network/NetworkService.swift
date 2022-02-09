@@ -11,7 +11,7 @@ public typealias CompletionType<Response> = Result<Response, Error>
 
 protocol NetworkService {
     func request<Response: ResponseType>(urlRequest: URLRequest, completion: @escaping (Result<Response, Error>) -> Void)
-    func requestUpload<Response: ResponseType>(param: [String: Any],url: String,data: [UploadData],isUpdate: Bool,completion: @escaping (Result<Response, Error>) -> Void)
+    func requestUpload<Response: ResponseType>(param: [String: Any],url: String,data: [UploadData],completion: @escaping (Result<Response, Error>) -> Void)
 }
 
 extension NetworkService {
@@ -21,7 +21,7 @@ extension NetworkService {
         request(urlRequest: urlRequest, completion: completion)
     }
     
-    func requestUpload<Response: ResponseType>(param: [String: Any],url: String,data: [UploadData],isUpdate: Bool,completion: @escaping (Result<Response, Error>) -> Void) {
-        requestUpload(param: param, url: url, data: data, isUpdate: isUpdate, completion: completion)
+    func requestUpload<Response: ResponseType>(param: [String: Any],url: String,data: [UploadData],completion: @escaping (Result<Response, Error>) -> Void) {
+        requestUpload(param: param, url: url, data: data, completion: completion)
     }
 }

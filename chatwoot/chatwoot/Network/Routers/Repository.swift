@@ -36,4 +36,9 @@ struct HomeRouter: Repository {
     func sendTextMessageApi(conversationID: String, params: SendTextMessageModelRequest,completion: @escaping Response<MessageModel>) {
         network.request(route: HomeNetworkRouter.sendTextMessage(conversationID: conversationID, params: params), completion: completion)
     }
+    
+    func uploadImage(params: [String: Any],data: [UploadData],conversationID: String, completion: @escaping Response<MessageModel>) {
+        let path: String = HomeNetworkRouter.uploadImage(conversationID: conversationID).path
+        network.requestUpload(param: params, url: path, data: data, completion: completion)
+    }
 }
