@@ -26,4 +26,17 @@ struct ServerConfig {
         }
         return URL(string: urlFormatted.replacingOccurrences(of: "{inbox_identifier}", with: Constants.inboxIdentifier))!
     }
+    
+    public var socketURL: URL {
+        var socketPath = ""
+        switch Self.releaseMode {
+        case .develop:
+            socketPath = Constants.Urls.SocketUrl.develop
+        case .staging:
+            socketPath = Constants.Urls.SocketUrl.staging
+        case .production:
+            socketPath = Constants.Urls.SocketUrl.production
+        }
+        return URL(string: socketPath)!
+    }
 }

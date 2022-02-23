@@ -27,6 +27,12 @@ extension Constants {
             static let staging    = "https://api-staing.blob.core.windows.net"
             static let production = "https://api-production.blob.core.windows.net"
         }
+        
+        enum SocketUrl {
+            static let develop    = "wss://develop.chatwoot.com/cable"
+            static let staging    = "wss://staging.chatwoot.com/cable"
+            static let production = "wss://chatwoot.com/cable"
+        }
     }
     
     enum Messages {

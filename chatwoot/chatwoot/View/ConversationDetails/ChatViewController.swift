@@ -18,9 +18,12 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
 
     /// The `AudioController` control the AVAudioPlayer state (play, pause, stop) and update audio cell UI accordingly.
     lazy var audioController = AudioController(messageCollectionView: messagesCollectionView)
-
-    public lazy var messageList: [MockMessage] = []
     
+    /// The `webSocketTask` receives the realtime chats while app is active
+    var webSocketTask: URLSessionWebSocketTask? = nil
+    
+    public lazy var messageList: [MockMessage] = []
+
     private(set) lazy var refreshControl: UIRefreshControl = {
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(loadMoreMessages), for: .valueChanged)
@@ -32,7 +35,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     private var conversationDetailsViewModel = ConversationDetailsViewModel()
 
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,22 +44,15 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         title = "Chatwoot"
         conversationDetailsViewModel.delegate = self
         conversationDetailsViewModel.listAllMessagesApi(conversationID: String(selectedConversation.conversationID))
-        //loadFirstMessages()
+        connectSocket()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        /*
-        MockSocket.shared.connect(with: [SampleData.shared.nathan, SampleData.shared.wu])
-            .onNewMessage { [weak self] message in
-                self?.insertMessage(message)
-        }
-         */
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        MockSocket.shared.disconnect()
         audioController.stopAnyOngoingPlaying()
     }
 
@@ -64,43 +60,64 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         return .lightContent
     }
     
-    func loadFirstMessages() {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let count = UserDefaults.standard.mockMessagesCount()
-            SampleData.shared.getMessages(count: count) { messages in
-                DispatchQueue.main.async {
-                    self.messageList = messages
-                    self.messagesCollectionView.reloadData()
-                    self.messagesCollectionView.scrollToLastItem()
+    func connectSocket() {
+        let urlSession = URLSession(configuration: .default)
+        webSocketTask = urlSession.webSocketTask(with: ServerConfig().socketURL)
+        webSocketTask?.resume()
+        
+//        //FIXME:- pubsub_token
+//        print(GetUserDefaults.contactInfo.pubsubToken ?? "")
+        let pubsTokenDict = ["channel": "RoomChannel", "pubsub_token": "qxQSDvz33NYL7M3HeckmC18M"]
+        let encoder = JSONEncoder()
+        if let pubsTokenData = try? encoder.encode(pubsTokenDict) {
+            if let pubsTokenJson = String(data: pubsTokenData, encoding: .utf8) {
+                let paramDict = ["command": "subscribe", "identifier":pubsTokenJson]
+                if let paramJsonData = try? encoder.encode(paramDict) {
+                    if let paramJson = String(data: paramJsonData, encoding: .utf8) {
+                        let message = URLSessionWebSocketTask.Message.string(paramJson)
+                        webSocketTask?.send(message) { error in
+                            if let error = error {
+                                print("WebSocket sending error: \(error)")
+                            }
+                        }
+                        receiveSocketMessages()
+                    }
                 }
             }
         }
     }
     
+    func receiveSocketMessages() {
+        webSocketTask?.receive { result in
+            switch result {
+            case .failure(let error):
+                print("Error in receiving message: \(error)")
+            case .success(let message):
+                switch message {
+                case .string(let text):
+                    print("Received string: \(text)")
+                case .data(let data):
+                    print("Received data: \(data)")
+                @unknown default:
+                    print("Received default data:")
+                }
+            }
+            
+            //Recursive call to fetch the live messages
+            self.receiveSocketMessages()
+        }
+    }
+    
     @objc func loadMoreMessages() {
-//        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1) {
-//            SampleData.shared.getMessages(count: 20) { messages in
-//                DispatchQueue.main.async {
-//                    self.messageList.insert(contentsOf: messages, at: 0)
-//                    self.messagesCollectionView.reloadDataAndKeepOffset()
-//                    self.refreshControl.endRefreshing()
-//                }
-//            }
-//        }
-        
         self.refreshControl.endRefreshing()
     }
     
     func configureMessageCollectionView() {
-        
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messageCellDelegate = self
-        
         scrollsToLastItemOnKeyboardBeginsEditing = true // default false
         maintainPositionOnKeyboardFrameChanged = true // default false
-
         showMessageTimestampOnSwipeLeft = true // default false
-        
         messagesCollectionView.refreshControl = refreshControl
     }
     
@@ -132,7 +149,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     }
     
     func isLastSectionVisible() -> Bool {
-        
+
         guard !messageList.isEmpty else { return false }
         
         let lastIndexPath = IndexPath(item: 0, section: messageList.count - 1)
