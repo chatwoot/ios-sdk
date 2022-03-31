@@ -307,7 +307,7 @@ extension ConversationDetailsViewController: CameraInputBarAccessoryViewDelegate
         let photoMessage = MockMessage(image: photo, user: self.currentSender() as! MockUser, messageId: UUID().uuidString, date: Date())
         self.insertMessage(photoMessage)
         
-        let imageData = UploadData(uploadName: "image", key: "attachments", imageData: photo.jpegData(compressionQuality: 0.5))
+        let imageData = UploadData(uploadName: "image", key: "attachments[]", imageData: photo.jpegData(compressionQuality: 0.5))
         self.sendImageToAPI(imageData: imageData)
     }
     

@@ -66,7 +66,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         webSocketTask?.resume()
         
 //        //FIXME:- pubsub_token
-//        print(GetUserDefaults.contactInfo.pubsubToken ?? "")
+        print(GetUserDefaults.contactInfo.pubsubToken ?? "")
         let pubsTokenDict = ["channel": "RoomChannel", "pubsub_token": "qxQSDvz33NYL7M3HeckmC18M"]
         let encoder = JSONEncoder()
         if let pubsTokenData = try? encoder.encode(pubsTokenDict) {

@@ -11,12 +11,14 @@ import Foundation
 struct AllConversationsModel: Codable {
     let conversationID: Int!
     let inboxID: Int!
+    let agentLastSeenAt: TimeInterval!
     let messages: [MessageModel]!
     let contact: ContactModel
 
     enum CodingKeys: String, CodingKey {
         case conversationID = "id"
         case inboxID = "inbox_id"
+        case agentLastSeenAt = "contact_last_seen_at"
         case messages = "messages"
         case contact = "contact"
     }
@@ -29,6 +31,7 @@ struct MessageModel: Codable {
     let contentType: String!
     let createdAt: TimeInterval!
     let conversationID: Int!
+    let isPrivate: Bool!
     let sender: SenderModel!
     let attachments: [AttachmentModel]!
     
@@ -39,6 +42,7 @@ struct MessageModel: Codable {
         case contentType = "content_type"
         case createdAt = "created_at"
         case conversationID = "conversation_id"
+        case isPrivate = "private"
         case sender = "sender"
         case attachments = "attachments"
     }
