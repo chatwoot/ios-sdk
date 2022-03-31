@@ -36,7 +36,7 @@ class AllConversationsTableViewCell: UITableViewCell {
     }
     
     func configureCell(conversationsModel: AllConversationsModel) {
-        lblCount.text = String(format: "%@", conversationsModel.messages.count.roundedWithAbbreviations)
+        lblCount.text = String(format: "%@", getUnreadMessageCount(conversationsModel: conversationsModel).roundedWithAbbreviations)
         lblCount.layer.cornerRadius = (lblCount.frame.height/2)
         //FIXME:- Agent name
         if 0 == conversationsModel.messages.count {
@@ -77,5 +77,14 @@ class AllConversationsTableViewCell: UITableViewCell {
                 }
             }
         }
+    }
+    
+    func getUnreadMessageCount(conversationsModel: AllConversationsModel)-> Int {
+        let messageModels = conversationsModel.messages.filter { messageModel in
+            return messageModel.createdAt * 1000 > conversationsModel.agentLastSeenAt * 1000 &&
+            messageModel.messageType == 0 &&
+            messageModel.isPrivate != true
+        }
+        return messageModels.count
     }
 }
