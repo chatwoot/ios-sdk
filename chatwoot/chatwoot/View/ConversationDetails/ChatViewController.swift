@@ -18,10 +18,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
 
     /// The `AudioController` control the AVAudioPlayer state (play, pause, stop) and update audio cell UI accordingly.
     lazy var audioController = AudioController(messageCollectionView: messagesCollectionView)
-    
-    /// The `webSocketTask` receives the realtime chats while app is active
-    var webSocketTask: URLSessionWebSocketTask? = nil
-    
+        
     public lazy var messageList: [MockMessage] = []
 
     private(set) lazy var refreshControl: UIRefreshControl = {
@@ -44,7 +41,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         title = "Chatwoot"
         conversationDetailsViewModel.delegate = self
         conversationDetailsViewModel.listAllMessagesApi(conversationID: String(selectedConversation.conversationID))
-        connectSocket()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,54 +54,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    func connectSocket() {
-        let urlSession = URLSession(configuration: .default)
-        webSocketTask = urlSession.webSocketTask(with: ServerConfig().socketURL)
-        webSocketTask?.resume()
-        
-//        //FIXME:- pubsub_token
-        print(GetUserDefaults.contactInfo.pubsubToken ?? "")
-        let pubsTokenDict = ["channel": "RoomChannel", "pubsub_token": "qxQSDvz33NYL7M3HeckmC18M"]
-        let encoder = JSONEncoder()
-        if let pubsTokenData = try? encoder.encode(pubsTokenDict) {
-            if let pubsTokenJson = String(data: pubsTokenData, encoding: .utf8) {
-                let paramDict = ["command": "subscribe", "identifier":pubsTokenJson]
-                if let paramJsonData = try? encoder.encode(paramDict) {
-                    if let paramJson = String(data: paramJsonData, encoding: .utf8) {
-                        let message = URLSessionWebSocketTask.Message.string(paramJson)
-                        webSocketTask?.send(message) { error in
-                            if let error = error {
-                                print("WebSocket sending error: \(error)")
-                            }
-                        }
-                        receiveSocketMessages()
-                    }
-                }
-            }
-        }
-    }
-    
-    func receiveSocketMessages() {
-        webSocketTask?.receive { result in
-            switch result {
-            case .failure(let error):
-                print("Error in receiving message: \(error)")
-            case .success(let message):
-                switch message {
-                case .string(let text):
-                    print("Received string: \(text)")
-                case .data(let data):
-                    print("Received data: \(data)")
-                @unknown default:
-                    print("Received default data:")
-                }
-            }
-            
-            //Recursive call to fetch the live messages
-            self.receiveSocketMessages()
-        }
     }
     
     @objc func loadMoreMessages() {

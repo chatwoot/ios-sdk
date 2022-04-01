@@ -8,11 +8,15 @@
 import Foundation
 
 // MARK: - AllConversationsModel
-struct AllConversationsModel: Codable {
+struct AllConversationsModel: Codable, Equatable {
+    static func == (lhs: AllConversationsModel, rhs: AllConversationsModel) -> Bool {
+        return lhs.conversationID == rhs.conversationID && lhs.inboxID == rhs.inboxID
+    }
+    
     let conversationID: Int!
     let inboxID: Int!
     let agentLastSeenAt: TimeInterval!
-    let messages: [MessageModel]!
+    var messages: [MessageModel]!
     let contact: ContactModel
 
     enum CodingKeys: String, CodingKey {
@@ -97,6 +101,24 @@ struct AttachmentModel: Codable {
         case fileExtension = "extension"
         case dataURL = "data_url"
         case thumbURL = "thumb_url"
+    }
+}
+
+// MARK: - FOR SOCKET MESSAGE
+struct SocketMessageModel: Codable {
+    let messageSocketData: MessageSocketDataModel!
+    enum CodingKeys: String, CodingKey {
+        case messageSocketData = "message"
+    }
+}
+
+struct MessageSocketDataModel: Codable {
+    let event: String!
+    let message: MessageModel!
+    
+    enum CodingKeys: String, CodingKey {
+        case event = "event"
+        case message = "data"
     }
 }
 
