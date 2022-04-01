@@ -104,6 +104,8 @@ struct MockLinkItem: LinkItem {
 internal struct MockMessage: MessageType {
 
     var messageId: String
+    var itemLink: String
+
     var sender: SenderType {
         return user
     }
@@ -112,59 +114,60 @@ internal struct MockMessage: MessageType {
 
     var user: MockUser
 
-    private init(kind: MessageKind, user: MockUser, messageId: String, date: Date) {
+    private init(kind: MessageKind, user: MockUser, messageId: String, date: Date, link: String) {
         self.kind = kind
         self.user = user
         self.messageId = messageId
         self.sentDate = date
+        self.itemLink = link
     }
     
     init(custom: Any?, user: MockUser, messageId: String, date: Date) {
-        self.init(kind: .custom(custom), user: user, messageId: messageId, date: date)
+        self.init(kind: .custom(custom), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(text: String, user: MockUser, messageId: String, date: Date) {
-        self.init(kind: .text(text), user: user, messageId: messageId, date: date)
+        self.init(kind: .text(text), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(attributedText: NSAttributedString, user: MockUser, messageId: String, date: Date) {
-        self.init(kind: .attributedText(attributedText), user: user, messageId: messageId, date: date)
+        self.init(kind: .attributedText(attributedText), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(image: UIImage, user: MockUser, messageId: String, date: Date) {
         let mediaItem = ImageMediaItem(image: image)
-        self.init(kind: .photo(mediaItem), user: user, messageId: messageId, date: date)
+        self.init(kind: .photo(mediaItem), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(imageURL: URL, user: MockUser, messageId: String, date: Date) {
         let mediaItem = ImageMediaItem(imageURL: imageURL)
-        self.init(kind: .photo(mediaItem), user: user, messageId: messageId, date: date)
+        self.init(kind: .photo(mediaItem), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(thumbnail: UIImage, user: MockUser, messageId: String, date: Date) {
         let mediaItem = ImageMediaItem(image: thumbnail)
-        self.init(kind: .video(mediaItem), user: user, messageId: messageId, date: date)
+        self.init(kind: .video(mediaItem), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(location: CLLocation, user: MockUser, messageId: String, date: Date) {
         let locationItem = CoordinateItem(location: location)
-        self.init(kind: .location(locationItem), user: user, messageId: messageId, date: date)
+        self.init(kind: .location(locationItem), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(emoji: String, user: MockUser, messageId: String, date: Date) {
-        self.init(kind: .emoji(emoji), user: user, messageId: messageId, date: date)
+        self.init(kind: .emoji(emoji), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(audioURL: URL, user: MockUser, messageId: String, date: Date) {
         let audioItem = MockAudioItem(url: audioURL)
-        self.init(kind: .audio(audioItem), user: user, messageId: messageId, date: date)
+        self.init(kind: .audio(audioItem), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(contact: MockContactItem, user: MockUser, messageId: String, date: Date) {
-        self.init(kind: .contact(contact), user: user, messageId: messageId, date: date)
+        self.init(kind: .contact(contact), user: user, messageId: messageId, date: date, link: "")
     }
 
     init(linkItem: LinkItem, user: MockUser, messageId: String, date: Date) {
-        self.init(kind: .linkPreview(linkItem), user: user, messageId: messageId, date: date)
+        self.init(kind: .linkPreview(linkItem), user: user, messageId: messageId, date: date, link: linkItem.teaser)
     }
 }

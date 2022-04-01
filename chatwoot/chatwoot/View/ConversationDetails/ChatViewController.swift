@@ -160,6 +160,21 @@ extension ChatViewController: MessageCellDelegate {
     
     func didTapMessage(in cell: MessageCollectionViewCell) {
         print("Message tapped")
+        
+        if cell is LinkPreviewMessageCell {
+            let indexPath:IndexPath = messagesCollectionView.indexPath(for: cell)!
+            let mockMessage: MockMessage = messageList[indexPath.section]
+            
+            guard let url = URL(string: mockMessage.itemLink) else {
+                return
+            }
+                
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
     func didTapImage(in cell: MessageCollectionViewCell) {
@@ -242,6 +257,12 @@ extension ChatViewController: MessageLabelDelegate {
     
     func didSelectURL(_ url: URL) {
         print("URL Selected: \(url)")
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     
     func didSelectTransitInformation(_ transitInformation: [String: String]) {
@@ -333,19 +354,24 @@ extension ChatViewController: ConversationDetailsDelegate {
 
             if (messageModel.attachments?.count ?? 0 > 0) {
                 for attachment in messageModel.attachments {
-                    if let thumbURL = attachment.thumbURL {
-                        if  thumbURL.count > 0 {
-                            let imageURL: URL = URL(string: thumbURL)!
-                            message = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
-                        }
-                        else if let dataURL = attachment.dataURL {
-                            let audioURL = URL(string: dataURL)
-                            message = MockMessage(audioURL: audioURL!, user: sender, messageId:messageID , date: messageDate)
-                        }
-                    }
-                    else if let dataURL = attachment.dataURL {
-                        let audioURL = URL(string: dataURL)
+                    if attachment.fileType == "audio" {
+                        let audioURL = URL(string: attachment.dataURL)
                         message = MockMessage(audioURL: audioURL!, user: sender, messageId:messageID , date: messageDate)
+                    }
+                    else if attachment.fileType == "image" {
+                        let imageURL: URL = URL(string: attachment.thumbURL)!
+                        message = MockMessage(imageURL: imageURL, user: sender, messageId:messageID , date: messageDate)
+                    }
+                    else {
+                        let linkItem = MockLinkItem(
+                            text: Constants.Messages.fileMessage,
+                            attributedText: nil,
+                            url: URL(string: attachment.dataURL)!,
+                            title: "Click the link to view",
+                            teaser: attachment.dataURL,
+                            thumbnailImage: UIImage(named: "file_message")!
+                        )
+                        message = MockMessage(linkItem: linkItem, user: sender, messageId: messageID, date: messageDate)
                     }
                 }
             }

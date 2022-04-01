@@ -110,8 +110,6 @@ class AllConversationsViewController: UIViewController {
                 case .string(let text):
                     print("Received string: \(text)")
                     processAndDisplaySocketMessage(jsonMessage: text)
-                    processAndDisplaySocketMessage(jsonMessage: text)
-
                 case .data(let data):
                     print("Received data: \(data)")
                 @unknown default:
@@ -226,10 +224,9 @@ extension AllConversationsViewController: UITableViewDataSource {
 extension AllConversationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let conversationsModel: AllConversationsModel = allConversations[indexPath.row]
-        if 0 < conversationsModel.messages.count {
-            let conversationDetailsVC = ConversationDetailsViewController()
-            conversationDetailsVC.selectedConversation = conversationsModel
-            self.navigationController?.pushViewController(conversationDetailsVC, animated: true)
-        }
+        let conversationDetailsVC = ConversationDetailsViewController()
+        conversationDetailsVC.selectedConversation = conversationsModel
+        self.navigationController?.pushViewController(conversationDetailsVC, animated: true)
+
     }
 }

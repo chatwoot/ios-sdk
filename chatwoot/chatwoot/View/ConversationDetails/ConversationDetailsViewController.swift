@@ -17,7 +17,7 @@ class ConversationDetailsViewController: ChatViewController {
         super.viewDidLoad()
         
         //FIXME:- AgentName
-        if selectedConversation != nil {
+        if selectedConversation != nil && selectedConversation.messages.count > 0 {
             let lastMessage: MessageModel = selectedConversation.messages.last!
             updateTitleView(title: lastMessage.sender?.senderName ?? "Chatwoot", subtitle: "")
         }
