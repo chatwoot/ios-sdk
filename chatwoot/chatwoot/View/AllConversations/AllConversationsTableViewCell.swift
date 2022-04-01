@@ -50,7 +50,6 @@ class AllConversationsTableViewCell: UITableViewCell {
             let createdAt = Date(timeIntervalSince1970: lastMessage.createdAt)
             lblDate.text = createdAt.relativeTime
             
-            
             if (lastMessage.attachments?.count ?? 0 > 0) {
                 for attachment in lastMessage.attachments {
                     if let thumbURL = attachment.thumbURL {

@@ -150,6 +150,13 @@ class AllConversationsViewController: UIViewController {
                                     self.allConversationsTableView.beginUpdates()
                                     self.allConversationsTableView.reloadRows(at: [indexPath as IndexPath], with: .none)
                                     self.allConversationsTableView.endUpdates()
+                                    
+                                    if (self.navigationController?.children.last is ConversationDetailsViewController) {
+                                        let convDetailsVC:ConversationDetailsViewController  = self.navigationController?.children.last as! ConversationDetailsViewController
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                            convDetailsVC.insertMessageFromSocket(messageModel: msgItem)
+                                        }
+                                    }
                                 }
                             }
                             else {

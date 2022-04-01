@@ -164,6 +164,10 @@ class ConversationDetailsViewController: ChatViewController {
                 self.navigationController?.present(actionSheet, animated: true, completion: nil)
         }
     }
+    
+    public func insertMessageFromSocket(messageModel: MessageModel) {
+        listAllMessages(data: [messageModel])
+    }
 
 }
 
