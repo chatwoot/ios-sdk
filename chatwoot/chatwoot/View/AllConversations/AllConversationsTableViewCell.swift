@@ -52,18 +52,14 @@ class AllConversationsTableViewCell: UITableViewCell {
             
             if (lastMessage.attachments?.count ?? 0 > 0) {
                 for attachment in lastMessage.attachments {
-                    if let thumbURL = attachment.thumbURL {
-                        if  thumbURL.count > 0 {
-                            lblMessage.text = Constants.Messages.picMessage
-                        }
-                        else if let dataURL = attachment.dataURL {
-                            print(dataURL)
-                            lblMessage.text = Constants.Messages.audioMessage
-                        }
-                    }
-                    else if let dataURL = attachment.dataURL {
-                        print(dataURL)
+                    if attachment.fileType == "audio" {
                         lblMessage.text = Constants.Messages.audioMessage
+                    }
+                    else if attachment.fileType == "image" {
+                        lblMessage.text = Constants.Messages.picMessage
+                    }
+                    else {
+                        lblMessage.text = Constants.Messages.fileMessage
                     }
                 }
             }
