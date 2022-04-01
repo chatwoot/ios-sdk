@@ -40,7 +40,13 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         configureMessageInputBar()
         title = "Chatwoot"
         conversationDetailsViewModel.delegate = self
-        conversationDetailsViewModel.listAllMessagesApi(conversationID: String(selectedConversation.conversationID))
+        
+        if selectedConversation == nil {
+            conversationDetailsViewModel.createConversationsApi()
+        }
+        else {
+            conversationDetailsViewModel.listAllMessagesApi(conversationID: String(selectedConversation.conversationID))
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -309,6 +315,15 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 }
 
 extension ChatViewController: ConversationDetailsDelegate {
+    func createConversations(data: AllConversationsModel) {
+        selectedConversation = data;
+        conversationDetailsViewModel.listAllMessagesApi(conversationID: String(selectedConversation.conversationID))
+        if self.navigationController?.children.first is AllConversationsViewController {
+            let allConversationVC: AllConversationsViewController = self.navigationController?.children.first as! AllConversationsViewController
+            allConversationVC.refreshConversations()
+        }
+    }
+    
     func listAllMessages(data: [MessageModel]) {
         var message: MockMessage? = nil
         for messageModel in data {

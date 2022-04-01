@@ -12,12 +12,18 @@ import Kingfisher
 import InputBarAccessoryView
 
 class ConversationDetailsViewController: ChatViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //FIXME:- AgentName
-        let lastMessage: MessageModel = selectedConversation.messages.last!        
-        updateTitleView(title: lastMessage.sender?.senderName ?? "Chatwoot", subtitle: "")
+        if selectedConversation != nil {
+            let lastMessage: MessageModel = selectedConversation.messages.last!
+            updateTitleView(title: lastMessage.sender?.senderName ?? "Chatwoot", subtitle: "")
+        }
+        else {
+            updateTitleView(title: "Chatwoot" , subtitle: "")
+        }
     }
     
     override func configureMessageCollectionView() {

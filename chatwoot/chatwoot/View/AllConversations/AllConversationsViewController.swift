@@ -42,6 +42,11 @@ class AllConversationsViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    @IBAction func newConversationClicked(_sender : AnyObject) {
+        let conversationDetailsVC = ConversationDetailsViewController()
+        self.navigationController?.pushViewController(conversationDetailsVC, animated: true)
+    }
+    
     func configureTableView() {
         allConversationsTableView.delegate = nil
         allConversationsTableView.dataSource = nil
@@ -146,16 +151,14 @@ class AllConversationsViewController: UIViewController {
                                 conversationModel.messages.append(msgItem)
                                 self.allConversations[indexToReplace!] = conversationModel
                                 
-                                DispatchQueue.main.async {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                     self.allConversationsTableView.beginUpdates()
                                     self.allConversationsTableView.reloadRows(at: [indexPath as IndexPath], with: .none)
                                     self.allConversationsTableView.endUpdates()
                                     
                                     if (self.navigationController?.children.last is ConversationDetailsViewController) {
                                         let convDetailsVC:ConversationDetailsViewController  = self.navigationController?.children.last as! ConversationDetailsViewController
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                            convDetailsVC.insertMessageFromSocket(messageModel: msgItem)
-                                        }
+                                        convDetailsVC.insertMessageFromSocket(messageModel: msgItem)
                                     }
                                 }
                             }

@@ -21,6 +21,10 @@ struct HomeRouter: Repository {
         self.network = network
     }
     
+    func createConversationsApi(completion: @escaping Response<AllConversationsModel>) {
+        network.request(route: HomeNetworkRouter.createAllConversations, completion: completion)
+    }
+    
     func listAllConversationsApi(completion: @escaping Response<[AllConversationsModel]>) {
         network.request(route: HomeNetworkRouter.listAllConversations, completion: completion)
     }

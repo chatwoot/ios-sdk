@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 
 protocol ConversationDetailsDelegate: AnyObject {
+    func createConversations(data: AllConversationsModel)
     func listAllMessages(data: [MessageModel])
     func networkOfflineAlert()
     func textMessageDelivered(data: MessageModel)
@@ -17,6 +18,25 @@ protocol ConversationDetailsDelegate: AnyObject {
 
 class ConversationDetailsViewModel: NSObject {
     weak var delegate: ConversationDetailsDelegate?
+    
+    func createConversationsApi() {
+        if (NetworkReachabilityManager()!.isReachable) {
+            ProgressHUD.show()
+            HomeRouter().createConversationsApi() { [ weak self] result in
+                switch result {
+                case .success(let result):
+                    self?.delegate?.createConversations(data: result)
+                    ProgressHUD.dismiss()
+                case .failure( _):
+                    ProgressHUD.dismiss()
+                    break
+                }
+            }
+        }
+        else {
+            self.delegate?.networkOfflineAlert()
+        }
+    }
     
     func listAllMessagesApi(conversationID: String) {
         if (NetworkReachabilityManager()!.isReachable) {

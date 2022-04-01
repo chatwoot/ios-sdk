@@ -8,6 +8,7 @@
 import Foundation
 
 enum HomeNetworkRouter: Router {
+    case createAllConversations
     case listAllConversations
     case createContact(params: CreateContactRequest)
     case listAllMessages(conversationID: String)
@@ -20,6 +21,8 @@ enum HomeNetworkRouter: Router {
     
     var path: String {
         switch self {
+        case .createAllConversations:
+            return "contacts/".appending(getContactIdentifier() + "/conversations")
         case .listAllConversations:
             return "contacts/".appending(getContactIdentifier() + "/conversations")
         case .createContact:
@@ -35,6 +38,7 @@ enum HomeNetworkRouter: Router {
     
     var method: String {
         switch self {
+        case .createAllConversations: return "POST"
         case .listAllConversations: return "GET"
         case .createContact: return "POST"
         case .listAllMessages(_): return "GET"
@@ -50,6 +54,8 @@ enum HomeNetworkRouter: Router {
         request.cachePolicy = .useProtocolCachePolicy
         
         switch self {
+        case .createAllConversations:
+            break
         case .listAllConversations:
             break
         case .listAllMessages(_):
