@@ -62,6 +62,10 @@ open class ImageAttachmentCell: AttachmentCell {
     
     private func setup() {
         containerView.addSubview(imageView)
+<<<<<<< HEAD
         imageView.fillSuperviewInputBar()
+=======
+        imageView.fillSuperview()
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
     }
 }

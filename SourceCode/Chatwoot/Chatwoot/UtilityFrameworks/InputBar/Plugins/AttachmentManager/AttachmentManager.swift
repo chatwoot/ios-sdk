@@ -202,10 +202,13 @@ extension AttachmentManager: UICollectionViewDataSource, UICollectionViewDelegat
     
     final public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+<<<<<<< HEAD
         if let customSize = self.dataSource?.attachmentManager(self, sizeFor: self.attachments[indexPath.row], at: indexPath.row){
             return customSize
         }
         
+=======
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         var height = attachmentView.intrinsicContentHeight
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             height -= (layout.sectionInset.bottom + layout.sectionInset.top + collectionView.contentInset.top + collectionView.contentInset.bottom)

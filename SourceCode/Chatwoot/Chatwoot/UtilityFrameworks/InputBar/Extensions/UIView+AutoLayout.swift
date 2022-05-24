@@ -29,7 +29,11 @@ import UIKit
 
 internal extension UIView {
     
+<<<<<<< HEAD
     func fillSuperviewInputBar() {
+=======
+    func fillSuperview() {
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         guard let superview = self.superview else {
             return
         }

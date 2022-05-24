@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 typealias ResponseType = Decodable
 typealias AFResponse<Response: Decodable> = Alamofire.DataResponse<Response, AFError>

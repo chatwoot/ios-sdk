@@ -6,7 +6,11 @@
 //
 
 import UIKit
+<<<<<<< HEAD:SourceCode/Chatwoot/Chatwoot/ViewModel/ConversationDetailsViewModel.swift
 import Alamofire
+=======
+
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9:chatwoot/chatwoot/ViewModel/ConversationDetailsViewModel.swift
 protocol ConversationDetailsDelegate: AnyObject {
     func createConversations(data: AllConversationsModel)
     func listAllMessages(data: [MessageModel])

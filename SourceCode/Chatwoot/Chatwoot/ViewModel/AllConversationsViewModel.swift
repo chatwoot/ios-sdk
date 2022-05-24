@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 protocol AllConversationsDelegate: AnyObject {
     func contactCreated(data: CreateContactModel)

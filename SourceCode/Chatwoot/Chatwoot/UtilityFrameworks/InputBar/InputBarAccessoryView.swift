@@ -74,7 +74,11 @@ open class InputBarAccessoryView: UIView {
         didSet {
             if isTranslucent && blurView.superview == nil {
                 backgroundView.addSubview(blurView)
+<<<<<<< HEAD
                 blurView.fillSuperviewInputBar()
+=======
+                blurView.fillSuperview()
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
             }
             blurView.isHidden = !isTranslucent
             let color: UIColor = backgroundView.backgroundColor ?? InputBarAccessoryView.defaultBackgroundColor
@@ -478,7 +482,11 @@ open class InputBarAccessoryView: UIView {
             right:  middleContentViewWrapper.rightAnchor.constraint(equalTo: rightStackView.leftAnchor, constant: -middleContentViewPadding.right)
         )
 
+<<<<<<< HEAD
         inputTextView.fillSuperviewInputBar()
+=======
+        inputTextView.fillSuperview()
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         maxTextViewHeight = calculateMaxTextViewHeight()
         textViewHeightAnchor = inputTextView.heightAnchor.constraint(equalToConstant: maxTextViewHeight)
         
@@ -696,7 +704,11 @@ open class InputBarAccessoryView: UIView {
         middleContentView = view
         guard let view = view else { return }
         middleContentViewWrapper.addSubview(view)
+<<<<<<< HEAD
         view.fillSuperviewInputBar()
+=======
+        view.fillSuperview()
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 
         performLayout(animated) { [weak self] in
             guard self?.superview != nil else { return }
@@ -785,13 +797,20 @@ open class InputBarAccessoryView: UIView {
     /// - Parameters:
     ///   - newValue: New widthAnchor constant
     ///   - animated: If the layout should be animated
+<<<<<<< HEAD
     ///   - extraAnimations: Any extra operations that should also be animated
     open func setLeftStackViewWidthConstant(to newValue: CGFloat, animated: Bool, animations : (() -> Void)? = nil) {
+=======
+    open func setLeftStackViewWidthConstant(to newValue: CGFloat, animated: Bool) {
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         performLayout(animated) { 
             self.leftStackViewWidthConstant = newValue
             self.layoutStackViews([.left])
             self.layoutContainerViewIfNeeded()
+<<<<<<< HEAD
             animations?()
+=======
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         }
     }
     
@@ -800,13 +819,20 @@ open class InputBarAccessoryView: UIView {
     /// - Parameters:
     ///   - newValue: New widthAnchor constant
     ///   - animated: If the layout should be animated
+<<<<<<< HEAD
     ///   - extraAnimations: Any extra operations that should also be animated
     open func setRightStackViewWidthConstant(to newValue: CGFloat, animated: Bool, animations : (() -> Void)? = nil) {
+=======
+    open func setRightStackViewWidthConstant(to newValue: CGFloat, animated: Bool) {
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         performLayout(animated) { 
             self.rightStackViewWidthConstant = newValue
             self.layoutStackViews([.right])
             self.layoutContainerViewIfNeeded()
+<<<<<<< HEAD
             animations?()
+=======
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         }
     }
     

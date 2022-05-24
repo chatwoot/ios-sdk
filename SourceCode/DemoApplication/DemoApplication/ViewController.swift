@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,5 +27,12 @@ class ViewController: UIViewController {
         chatwootVC.modalPresentationStyle = .fullScreen
         self.present(chatwootVC, animated: true, completion: nil)
     }
+=======
+
+        let ChatwootVC = ChatwootViewController()
+    }
+
+
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 }
 

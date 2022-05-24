@@ -26,7 +26,10 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 import UIKit
+=======
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 
 /// AttachmentManagerDataSource is a protocol to passes data to the AttachmentManager
 public protocol AttachmentManagerDataSource: AnyObject {
@@ -39,6 +42,7 @@ public protocol AttachmentManagerDataSource: AnyObject {
     ///   - index: The index in the AttachmentView
     /// - Returns: An AttachmentCell
     func attachmentManager(_ manager: AttachmentManager, cellFor attachment: AttachmentManager.Attachment, at index: Int) -> AttachmentCell
+<<<<<<< HEAD
     
     /// The CGSize of the AttachmentCell for the attachment that is to be inserted into the AttachmentView
     ///
@@ -56,4 +60,6 @@ public extension AttachmentManagerDataSource{
     func attachmentManager(_ manager: AttachmentManager, sizeFor attachment: AttachmentManager.Attachment, at index: Int) -> CGSize? {
         return nil
     }
+=======
+>>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 }
