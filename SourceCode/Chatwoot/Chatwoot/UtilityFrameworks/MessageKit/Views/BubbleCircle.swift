@@ -27,11 +27,7 @@ import UIKit
 /// A `UIView` subclass that maintains a mask to keep it fully circular
 open class BubbleCircle: UIView {
     
-<<<<<<< HEAD
     /// Lays out subviews and applies a circular mask to the layer
-=======
-    /// Lays out subviews and applys a circular mask to the layer
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
     open override func layoutSubviews() {
         super.layoutSubviews()
         layer.mask = roundedMask(corners: .allCorners, radius: bounds.height / 2)

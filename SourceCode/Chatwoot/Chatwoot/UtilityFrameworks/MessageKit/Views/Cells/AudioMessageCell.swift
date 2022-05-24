@@ -38,11 +38,7 @@ open class AudioMessageCell: MessageContentCell {
         return playButton
     }()
 
-<<<<<<< HEAD
     /// The time duration label to display on audio messages.
-=======
-    /// The time duration lable to display on audio messages.
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
     public lazy var durationLabel: UILabel = {
         let durationLabel = UILabel(frame: CGRect.zero)
         durationLabel.textAlignment = .right
@@ -52,11 +48,7 @@ open class AudioMessageCell: MessageContentCell {
     }()
 
     public lazy var activityIndicatorView: UIActivityIndicatorView = {
-<<<<<<< HEAD
         let activityIndicatorView = UIActivityIndicatorView(style: .medium)
-=======
-        let activityIndicatorView = UIActivityIndicatorView(style: .gray)
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.isHidden = true
         return activityIndicatorView

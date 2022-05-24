@@ -1,11 +1,7 @@
 /*
  MIT License
  
-<<<<<<< HEAD
  Copyright (c) 2017-2022 MessageKit
-=======
- Copyright (c) 2017-2019 MessageKit
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -129,11 +125,8 @@ internal extension UIView {
         NSLayoutConstraint.activate(constraints)
         return constraints
     }
-<<<<<<< HEAD
 
     func addSubviews(_ subviews: UIView...) {
         subviews.forEach { addSubview($0) }
     }
-=======
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 }

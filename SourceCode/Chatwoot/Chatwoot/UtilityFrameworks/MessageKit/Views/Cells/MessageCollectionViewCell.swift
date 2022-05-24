@@ -1,11 +1,7 @@
 /*
  MIT License
 
-<<<<<<< HEAD
  Copyright (c) 2017-2022 MessageKit
-=======
- Copyright (c) 2017-2019 MessageKit
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -45,8 +41,4 @@ open class MessageCollectionViewCell: UICollectionViewCell {
     open func handleTapGesture(_ gesture: UIGestureRecognizer) {
         // Should be overridden
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 }

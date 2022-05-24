@@ -13,7 +13,6 @@
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
-<<<<<<< HEAD:SourceCode/Chatwoot/Chatwoot/UtilityFrameworks/KingFisher/Tests/KingfisherTests/Info.plist
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>7.2.2</string>
@@ -21,16 +20,5 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>2471</string>
-=======
-	<string>FMWK</string>
-	<key>CFBundleShortVersionString</key>
-	<string>7.2.1</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>2465</string>
-	<key>NSPrincipalClass</key>
-	<string></string>
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9:SourceCode/Chatwoot/Chatwoot/UtilityFrameworks/KingFisher/Info.plist
 </dict>
 </plist>

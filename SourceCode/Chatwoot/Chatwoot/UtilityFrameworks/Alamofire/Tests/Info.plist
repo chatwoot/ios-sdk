@@ -13,18 +13,12 @@
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
-<<<<<<< HEAD:SourceCode/Chatwoot/Chatwoot/UtilityFrameworks/Alamofire/Tests/Info.plist
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-=======
-	<string>FMWK</string>
-	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9:SourceCode/Chatwoot/Chatwoot/UtilityFrameworks/Alamofire/Info.plist
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>1</string>
 </dict>
 </plist>

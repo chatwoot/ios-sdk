@@ -7,10 +7,7 @@
 
 import UIKit
 import MapKit
-<<<<<<< HEAD:SourceCode/Chatwoot/Chatwoot/View/AllConversations/ConversationDetails/ConversationDetailsViewController.swift
 import Kingfisher
-=======
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9:chatwoot/chatwoot/View/ConversationDetails/ConversationDetailsViewController.swift
 
 class ConversationDetailsViewController: ChatViewController {
     

@@ -1,11 +1,7 @@
 /*
  MIT License
 
-<<<<<<< HEAD
  Copyright (c) 2017-2022 MessageKit
-=======
- Copyright (c) 2017-2019 MessageKit
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -82,11 +78,8 @@ open class MessageContentCell: MessageCollectionViewCell {
     /// The `MessageCellDelegate` for the cell.
     open weak var delegate: MessageCellDelegate?
 
-<<<<<<< HEAD
     // MARK: - Lifecycle
 
-=======
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
     public override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -99,20 +92,6 @@ open class MessageContentCell: MessageCollectionViewCell {
         setupSubviews()
     }
 
-<<<<<<< HEAD
-=======
-    open func setupSubviews() {
-        contentView.addSubview(accessoryView)
-        contentView.addSubview(cellTopLabel)
-        contentView.addSubview(messageTopLabel)
-        contentView.addSubview(messageBottomLabel)
-        contentView.addSubview(cellBottomLabel)
-        contentView.addSubview(messageContainerView)
-        contentView.addSubview(avatarView)
-        contentView.addSubview(messageTimestampLabel)
-    }
-
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
     open override func prepareForReuse() {
         super.prepareForReuse()
         cellTopLabel.text = nil
@@ -122,7 +101,6 @@ open class MessageContentCell: MessageCollectionViewCell {
         messageTimestampLabel.attributedText = nil
     }
 
-<<<<<<< HEAD
     open func setupSubviews() {
         contentView.addSubviews(
             accessoryView,
@@ -136,8 +114,6 @@ open class MessageContentCell: MessageCollectionViewCell {
         )
     }
 
-=======
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
     // MARK: - Configuration
 
     open override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {

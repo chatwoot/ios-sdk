@@ -39,20 +39,12 @@ public struct AvatarPosition: Equatable {
         case cellTrailing
         
         /// Positions the `AvatarView` based on whether the message is from the current Sender.
-<<<<<<< HEAD
         /// The cell is positioned `.cellTrailing` if `isFromCurrentSender` is true
-=======
-        /// The cell is positioned `.cellTrailling` if `isFromCurrentSender` is true
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
         /// and `.cellLeading` if false.
         case natural
     }
     
-<<<<<<< HEAD
     /// An enum representing the vertical alignment for an `AvatarView`.
-=======
-    /// An enum representing the verical alignment for an `AvatarView`.
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
     public enum Vertical {
         
         /// Aligns the `AvatarView`'s top edge to the cell's top edge.

@@ -29,11 +29,7 @@ import MapKit
 open class LocationMessageCell: MessageContentCell {
 
     /// The activity indicator to be displayed while the map image is loading.
-<<<<<<< HEAD
     open var activityIndicator = UIActivityIndicatorView(style: .medium)
-=======
-    open var activityIndicator = UIActivityIndicatorView(style: .gray)
->>>>>>> caf2454ee5f6b0815e7a0e7dc6bc346ac57a33f9
 
     /// The image view holding the map image.
     open var imageView = UIImageView()
