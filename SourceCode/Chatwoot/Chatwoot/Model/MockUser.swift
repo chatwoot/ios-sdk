@@ -27,5 +27,5 @@ import Foundation
 struct MockUser: SenderType, Equatable {
     var senderId: String
     var displayName: String
-    var userImage: String!
+    var userImage: String
 }

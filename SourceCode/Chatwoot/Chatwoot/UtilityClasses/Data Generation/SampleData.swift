@@ -47,11 +47,11 @@ final internal class SampleData {
         case ShareContact
     }
 
-    let system = MockUser(senderId: "000000", displayName: "System")
-    let nathan = MockUser(senderId: "000001", displayName: "Nathan Tannar")
+    let system = MockUser(senderId: "000000", displayName: "System", userImage: "")
+    let nathan = MockUser(senderId: "000001", displayName: "Nathan Tannar", userImage: "")
     //FIXME:- Mock User
-    let steven = MockUser(senderId: String(GetUserDefaults.contactInfo.contactID), displayName: "Shamsu")
-    let wu = MockUser(senderId: "000003", displayName: "Wu Zhong")
+    let steven = MockUser(senderId: String(GetUserDefaults.contactInfo.contactID), displayName: "Shamsu", userImage: "")
+    let wu = MockUser(senderId: "000003", displayName: "Wu Zhong", userImage: "")
 
     lazy var senders = [nathan, steven, wu]
     

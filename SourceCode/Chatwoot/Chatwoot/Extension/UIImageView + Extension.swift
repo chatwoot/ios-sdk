@@ -27,6 +27,13 @@ extension UIImageView {
                 }
             }
         }
+        else {
+            guard name != "" else {
+                return
+            }
+            let image = ImageFromName(text: name.capitalized ,radius: 15, fontSize: CGFloat(fontSize),bgColor)
+            self.image = image.generateImage()
+        }
     }
     
     func rotateDownloadedImageFromUrl(url: String) {

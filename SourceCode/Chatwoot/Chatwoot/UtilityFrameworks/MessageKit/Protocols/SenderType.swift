@@ -35,4 +35,7 @@ public protocol SenderType {
 
     /// The display name of a sender.
     var displayName: String { get }
+    
+    /// The display image of a sender.
+    var userImage: String { get }
 }

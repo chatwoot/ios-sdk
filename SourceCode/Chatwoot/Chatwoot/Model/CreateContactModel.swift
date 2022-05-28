@@ -24,12 +24,14 @@ struct CreateContactModel: Codable {
     let contactName: String!
     let contactEmail: String!
     let pubsubToken: String!
-    
+    let avatarURL: String!
+
     enum CodingKeys: String, CodingKey {
         case contactID = "id"
         case sourceID = "source_id"
         case contactName = "name"
         case contactEmail = "email"
         case pubsubToken = "pubsub_token"
+        case avatarURL = "avatar_url"
     }
 }

@@ -212,8 +212,7 @@ extension ConversationDetailsViewController: MessagesDisplayDelegate {
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        let message = messageList[indexPath.row]
-        avatarView.setImageFromUrl(url: message.user.userImage, message.user.displayName, 10, bgColor: .white)
+        avatarView.setImageFromUrl(url: message.sender.userImage, message.sender.displayName, 10, bgColor: .white)
     }
 
     func configureMediaMessageImageView(_ imageView: UIImageView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {

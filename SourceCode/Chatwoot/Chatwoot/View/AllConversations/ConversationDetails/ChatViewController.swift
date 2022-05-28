@@ -118,7 +118,7 @@ class ChatViewController: MessagesViewController {
 extension ChatViewController: MessagesDataSource {
     
     func currentSender() -> SenderType {
-        return MockUser(senderId: String(GetUserDefaults.contactInfo.contactID), displayName:GetUserDefaults.contactInfo.contactName)
+        return MockUser(senderId: String(GetUserDefaults.contactInfo.contactID), displayName:GetUserDefaults.contactInfo.contactName, userImage: "")
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
