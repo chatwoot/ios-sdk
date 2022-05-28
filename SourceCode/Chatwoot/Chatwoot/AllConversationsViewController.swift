@@ -145,6 +145,8 @@ public class ConversationsViewController: UIViewController {
                 if let msgItem = messageSocketData.message {
                     if msgItem.messageID != nil {
                         
+                        guard msgItem.sender != nil else {return}
+                        
                         //getting the conversation object.
                         let coversationList = self.allConversations.filter { convModel in
                             return convModel.conversationID == msgItem.conversationID
