@@ -53,7 +53,7 @@ struct AFNetwork: NetworkService {
             
             for image in data {
                 if let imgData = image.imageData {
-                    multipartFormData.append(imgData, withName: image.key , fileName: image.uploadName, mimeType: "file")
+                    multipartFormData.append(imgData, withName: image.key , fileName: image.uploadName, mimeType: "image")
                 }
             }
             
