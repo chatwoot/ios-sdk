@@ -140,6 +140,14 @@ public class ConversationsViewController: UIViewController {
                         let coversationList = self.allConversations.filter { convModel in
                             return convModel.conversationID == msgItem.conversationID
                         }
+                        
+                        //avoiding sender duplicate messages.
+                        if let contactInfo = GetUserDefaults.contactInfo {
+                            if (contactInfo.contactID == msgItem.sender.senderID && coversationList.count > 0) {
+                                return
+                            }
+                        }
+                        
                         if coversationList.count > 0 {
                             var conversationModel: AllConversationsModel = coversationList.first!
 
