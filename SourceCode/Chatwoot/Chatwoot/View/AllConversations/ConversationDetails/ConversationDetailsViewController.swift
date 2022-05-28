@@ -71,14 +71,16 @@ class ConversationDetailsViewController: ChatViewController {
         messageInputBar.sendButton.imageView?.layer.cornerRadius = 16
         let charCountButton = InputBarButtonItem()
             .configure {
-                $0.title = "0/140"
+                $0.title = "0/10000"
+                $0.titleLabel!.adjustsFontSizeToFitWidth = true
                 $0.contentHorizontalAlignment = .right
                 $0.setTitleColor(UIColor(white: 0.6, alpha: 1), for: .normal)
                 $0.titleLabel?.font = UIFont.init(name: "HelveticaNeueeTextPro-Bold", size: 10)
                 $0.setSize(CGSize(width: 50, height: 25), animated: false)
             }.onTextViewDidChange { (item, textView) in
-                item.title = "\(textView.text.count)/140"
-                let isOverLimit = textView.text.count > 140
+                item.setTitle("\(textView.text.count)/10000", for: .normal)
+                item.titleLabel!.adjustsFontSizeToFitWidth = true
+                let isOverLimit = textView.text.count > 10000
                 item.inputBarAccessoryView?.shouldManageSendButtonEnabledState = !isOverLimit // Disable automated management when over limit
                 if isOverLimit {
                     item.inputBarAccessoryView?.sendButton.isEnabled = false
