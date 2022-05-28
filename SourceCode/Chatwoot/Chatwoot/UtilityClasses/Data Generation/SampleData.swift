@@ -97,8 +97,8 @@ final internal class SampleData {
         CLLocation(latitude: 39.3218, longitude: -113.3317)
     ]
 
-    let sounds: [URL] = [Bundle.main.url(forResource: "sound1", withExtension: "m4a")!,
-                         Bundle.main.url(forResource: "sound2", withExtension: "m4a")!
+    let sounds: [URL] = [Bundle(for: ChatwootController.self).url(forResource: "sound1", withExtension: "m4a")!,
+                         Bundle(for: ChatwootController.self).url(forResource: "sound2", withExtension: "m4a")!
     ]
 
     let linkItem: (() -> MockLinkItem) = {
