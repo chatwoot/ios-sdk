@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D5A428FD2842614A00C29EEF /* ChatwootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A428FC2842614A00C29EEF /* ChatwootController.swift */; };
-		D5A61CCF283D4D8D0081AE6F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A61CC0283D4CA50081AE6F /* Alamofire.framework */; };
-		D5A61CD0283D4D8D0081AE6F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5A61CC0283D4CA50081AE6F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D5A61CD1283D4D8D0081AE6F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A61CC9283D4CEF0081AE6F /* Kingfisher.framework */; platformFilter = ios; };
-		D5A61CD2283D4D8D0081AE6F /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5A61CC9283D4CEF0081AE6F /* Kingfisher.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5A429192842715600C29EEF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A61CC0283D4CA50081AE6F /* Alamofire.framework */; };
+		D5A4291A2842715600C29EEF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5A61CC0283D4CA50081AE6F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5A4291C2842715A00C29EEF /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A61CC9283D4CEF0081AE6F /* Kingfisher.framework */; };
+		D5A4291D2842715A00C29EEF /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5A61CC9283D4CEF0081AE6F /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5A61CE9283D6F210081AE6F /* LocationMessageSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A61CDE283D6F210081AE6F /* LocationMessageSizeCalculator.swift */; };
 		D5A61CEA283D6F210081AE6F /* AudioMessageSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A61CDF283D6F210081AE6F /* AudioMessageSizeCalculator.swift */; };
 		D5A61CEB283D6F210081AE6F /* ContactMessageSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A61CE0283D6F210081AE6F /* ContactMessageSizeCalculator.swift */; };
@@ -23,7 +23,6 @@
 		D5A61CF1283D6F210081AE6F /* LinkPreviewMessageSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A61CE6283D6F210081AE6F /* LinkPreviewMessageSizeCalculator.swift */; };
 		D5A61CF2283D6F210081AE6F /* TextMessageSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A61CE7283D6F210081AE6F /* TextMessageSizeCalculator.swift */; };
 		D5A61CF3283D6F210081AE6F /* TypingIndicatorCellSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A61CE8283D6F210081AE6F /* TypingIndicatorCellSizeCalculator.swift */; };
-		D5A61CF7283D8BAE0081AE6F /* Chatwoot.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5A61CF6283D8BAE0081AE6F /* Chatwoot.plist */; };
 		FD14CCCC282311B500AD1CCD /* Chatwoot.docc in Sources */ = {isa = PBXBuildFile; fileRef = FD14CCCB282311B500AD1CCD /* Chatwoot.docc */; };
 		FD14CCCD282311B500AD1CCD /* Chatwoot.h in Headers */ = {isa = PBXBuildFile; fileRef = FD14CCCA282311B500AD1CCD /* Chatwoot.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD14CCF928231D8900AD1CCD /* AllConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14CCF828231D8900AD1CCD /* AllConversationsViewController.swift */; };
@@ -213,14 +212,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D5A61CD3283D4D8D0081AE6F /* Embed Frameworks */ = {
+		D5A4291B2842715600C29EEF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D5A61CD2283D4D8D0081AE6F /* Kingfisher.framework in Embed Frameworks */,
-				D5A61CD0283D4D8D0081AE6F /* Alamofire.framework in Embed Frameworks */,
+				D5A4291A2842715600C29EEF /* Alamofire.framework in Embed Frameworks */,
+				D5A4291D2842715A00C29EEF /* Kingfisher.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,7 +241,6 @@
 		D5A61CE6283D6F210081AE6F /* LinkPreviewMessageSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkPreviewMessageSizeCalculator.swift; sourceTree = "<group>"; };
 		D5A61CE7283D6F210081AE6F /* TextMessageSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessageSizeCalculator.swift; sourceTree = "<group>"; };
 		D5A61CE8283D6F210081AE6F /* TypingIndicatorCellSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypingIndicatorCellSizeCalculator.swift; sourceTree = "<group>"; };
-		D5A61CF6283D8BAE0081AE6F /* Chatwoot.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Chatwoot.plist; sourceTree = "<group>"; };
 		FD14CCC7282311B500AD1CCD /* Chatwoot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Chatwoot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD14CCCA282311B500AD1CCD /* Chatwoot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chatwoot.h; sourceTree = "<group>"; };
 		FD14CCCB282311B500AD1CCD /* Chatwoot.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Chatwoot.docc; sourceTree = "<group>"; };
@@ -407,8 +405,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5A61CD1283D4D8D0081AE6F /* Kingfisher.framework in Frameworks */,
-				D5A61CCF283D4D8D0081AE6F /* Alamofire.framework in Frameworks */,
+				D5A4291C2842715A00C29EEF /* Kingfisher.framework in Frameworks */,
+				D5A429192842715600C29EEF /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +441,6 @@
 		FD14CCBD282311B500AD1CCD = {
 			isa = PBXGroup;
 			children = (
-				D5A61CF6283D8BAE0081AE6F /* Chatwoot.plist */,
 				D5A61CC3283D4CEF0081AE6F /* Kingfisher.xcodeproj */,
 				D5A61CBA283D4CA50081AE6F /* Alamofire.xcodeproj */,
 				FD14CCC9282311B500AD1CCD /* Chatwoot */,
@@ -1036,7 +1033,7 @@
 				FD14CCC3282311B500AD1CCD /* Sources */,
 				FD14CCC4282311B500AD1CCD /* Frameworks */,
 				FD14CCC5282311B500AD1CCD /* Resources */,
-				D5A61CD3283D4D8D0081AE6F /* Embed Frameworks */,
+				D5A4291B2842715600C29EEF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1137,7 +1134,6 @@
 				FD14CD5C2823206600AD1CCD /* sound2.m4a in Resources */,
 				FD14CD602823206600AD1CCD /* HelveticaNeueETPro55Roman.TTF in Resources */,
 				FD14CD5D2823206600AD1CCD /* sound1.m4a in Resources */,
-				D5A61CF7283D8BAE0081AE6F /* Chatwoot.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

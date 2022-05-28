@@ -55,7 +55,7 @@ private struct ImageMediaItem: MediaItem {
     init(imageURL: URL) {
         self.url = imageURL
         self.size = CGSize(width: 240, height: 240)
-        self.placeholderImage = UIImage(named: "image_message_placeholder", in: Bundle(for: ConversationDetailsViewController.self), compatibleWith: nil)!
+        self.placeholderImage = UIImage(named: "image_message_placeholder", in: Bundle.messageKitAssetBundle, compatibleWith: nil)!
         }
 }
 

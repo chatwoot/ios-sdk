@@ -21,7 +21,7 @@ extension UITableView {
     
     func setEmptyImage(_ imageName: String) {
         let imageView = UIImageView(frame: CGRect(x: 20, y: 20, width: self.bounds.size.width - 40, height: self.bounds.size.height - 40))
-        imageView.image = UIImage(named: imageName)
+        imageView.image = UIImage(named: imageName, in: Bundle.messageKitAssetBundle, compatibleWith: nil)
         imageView.contentMode = .scaleAspectFit
         self.backgroundView = imageView
     }

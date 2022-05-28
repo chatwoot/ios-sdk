@@ -70,7 +70,7 @@ final internal class SampleData {
 
     var now = Date()
     
-    let messageImages: [UIImage] = [UIImage(named: "img1", in: Bundle(for: ConversationDetailsViewController.self), compatibleWith: nil)!, UIImage(named: "img2", in: Bundle(for: ConversationDetailsViewController.self), compatibleWith: nil)!]
+    let messageImages: [UIImage] = [UIImage(named: "img1", in: Bundle.messageKitAssetBundle, compatibleWith: nil)!, UIImage(named: "img2", in: Bundle.messageKitAssetBundle, compatibleWith: nil)!]
     
     let messageImageURLs: [URL] = [URL(string: "https://placekitten.com/g/200/300")!,
                                    URL(string: "https://placekitten.com/g/300/300")!,
@@ -97,8 +97,8 @@ final internal class SampleData {
         CLLocation(latitude: 39.3218, longitude: -113.3317)
     ]
 
-    let sounds: [URL] = [Bundle(for: ChatwootController.self).url(forResource: "sound1", withExtension: "m4a")!,
-                         Bundle(for: ChatwootController.self).url(forResource: "sound2", withExtension: "m4a")!
+    let sounds: [URL] = [Bundle.messageKitAssetBundle.url(forResource: "sound1", withExtension: "m4a")!,
+                         Bundle.messageKitAssetBundle.url(forResource: "sound2", withExtension: "m4a")!
     ]
 
     let linkItem: (() -> MockLinkItem) = {
@@ -108,7 +108,7 @@ final internal class SampleData {
             url: URL(string: "https://github.com/MessageKit")!,
             title: "MessageKit",
             teaser: "A community-driven replacement for JSQMessagesViewController - MessageKit",
-            thumbnailImage: UIImage(named: "mkorglogo")!
+            thumbnailImage: UIImage(named: "mkorglogo", in: Bundle.messageKitAssetBundle, compatibleWith: nil)!
         )
     }
 
@@ -275,11 +275,11 @@ final internal class SampleData {
         let initials = "\(firstName?.first ?? " ")\(lastName?.first ?? " ")".trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         switch sender.senderId {
         case "000001":
-            return Avatar(image: UIImage(named: "Nathan-Tannar", in: Bundle(for: Self.self), compatibleWith: nil), initials: initials)
+            return Avatar(image: UIImage(named: "Nathan-Tannar", in: Bundle.messageKitAssetBundle, compatibleWith: nil), initials: initials)
         case "000002":
-            return Avatar(image:  UIImage(named: "Steven-Deutsch", in: Bundle(for: Self.self), compatibleWith: nil), initials: initials)
+            return Avatar(image:  UIImage(named: "Steven-Deutsch", in: Bundle.messageKitAssetBundle, compatibleWith: nil), initials: initials)
         case String(GetUserDefaults.contactInfo.contactID):
-            return Avatar(image: UIImage(named: "Wu-Zhong", in: Bundle(for: Self.self), compatibleWith: nil), initials: initials)
+            return Avatar(image: UIImage(named: "Wu-Zhong", in: Bundle.messageKitAssetBundle, compatibleWith: nil), initials: initials)
         case "000000":
             return Avatar(image: nil, initials: "SS")
         default:

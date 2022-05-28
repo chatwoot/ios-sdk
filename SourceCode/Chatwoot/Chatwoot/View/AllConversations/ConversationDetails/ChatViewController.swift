@@ -369,7 +369,7 @@ extension ChatViewController: ConversationDetailsDelegate {
                             url: URL(string: attachment.dataURL)!,
                             title: "Click the link to view",
                             teaser: attachment.dataURL,
-                            thumbnailImage: UIImage(named: "file_message")!
+                            thumbnailImage: UIImage(named: "file_message", in: Bundle.messageKitAssetBundle, compatibleWith: nil)!
                         )
                         message = MockMessage(linkItem: linkItem, user: sender, messageId: messageID, date: messageDate)
                     }

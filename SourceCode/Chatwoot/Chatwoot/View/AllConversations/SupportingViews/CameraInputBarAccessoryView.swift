@@ -74,7 +74,7 @@ extension CameraInputBarAccessoryViewDelegate {
                 if #available(iOS 13.0, *) {
                     $0.image = UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysTemplate)
                 } else {
-                    $0.image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
+                    $0.image = UIImage(named: named, in: Bundle.messageKitAssetBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 }
                 
                 $0.setSize(CGSize(width: 30, height: 30), animated: false)

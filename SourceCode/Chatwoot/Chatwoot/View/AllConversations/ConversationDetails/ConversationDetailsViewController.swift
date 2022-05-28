@@ -65,7 +65,7 @@ class ConversationDetailsViewController: ChatViewController {
         messageInputBar.sendButton.imageView?.backgroundColor = UIColor(white: 0.85, alpha: 1)
         messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         messageInputBar.sendButton.setSize(CGSize(width: 36, height: 36), animated: false)
-        messageInputBar.sendButton.image = UIImage(named: "ic_up", in: Bundle(for: Self.self), compatibleWith: nil)
+        messageInputBar.sendButton.image = UIImage(named: "ic_up", in: Bundle.messageKitAssetBundle, compatibleWith: nil)
 
         messageInputBar.sendButton.title = nil
         messageInputBar.sendButton.imageView?.layer.cornerRadius = 16
@@ -152,7 +152,7 @@ class ConversationDetailsViewController: ChatViewController {
         return InputBarButtonItem()
             .configure {
                 $0.spacing = .fixed(10)
-                $0.image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
+                $0.image = UIImage(named: named, in: Bundle.messageKitAssetBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 $0.setSize(CGSize(width: 25, height: 25), animated: false)
                 $0.tintColor = UIColor(white: 0.8, alpha: 1)
             }.onSelected {
@@ -228,7 +228,7 @@ extension ConversationDetailsViewController: MessagesDisplayDelegate {
     
     func annotationViewForLocation(message: MessageType, at indexPath: IndexPath, in messageCollectionView: MessagesCollectionView) -> MKAnnotationView? {
         let annotationView = MKAnnotationView(annotation: nil, reuseIdentifier: nil)
-        let pinImage = UIImage(named: "ic_map_marker", in: Bundle(for: Self.self), compatibleWith: nil)
+        let pinImage = UIImage(named: "ic_map_marker", in: Bundle.messageKitAssetBundle, compatibleWith: nil)
         annotationView.image = pinImage
         annotationView.centerOffset = CGPoint(x: 0, y: -pinImage!.size.height / 2)
         return annotationView

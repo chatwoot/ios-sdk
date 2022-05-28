@@ -7,16 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5A4291E2842727000C29EEF /* Chatwoot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD14CCF428231A3500AD1CCD /* Chatwoot.framework */; };
+		D5A4291F2842727000C29EEF /* Chatwoot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD14CCF428231A3500AD1CCD /* Chatwoot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5A42922284272E500C29EEF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A42921284272E500C29EEF /* Alamofire.framework */; };
+		D5A42923284272E500C29EEF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5A42921284272E500C29EEF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5A42925284272EA00C29EEF /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A42924284272EA00C29EEF /* Kingfisher.framework */; };
+		D5A42926284272EA00C29EEF /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5A42924284272EA00C29EEF /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD14CCE0282311F000AD1CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14CCDF282311F000AD1CCD /* AppDelegate.swift */; };
 		FD14CCE2282311F000AD1CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14CCE1282311F000AD1CCD /* SceneDelegate.swift */; };
 		FD14CCE4282311F000AD1CCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14CCE3282311F000AD1CCD /* ViewController.swift */; };
 		FD14CCE7282311F000AD1CCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD14CCE5282311F000AD1CCD /* Main.storyboard */; };
 		FD14CCE9282311F200AD1CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD14CCE8282311F200AD1CCD /* Assets.xcassets */; };
 		FD14CCEC282311F200AD1CCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD14CCEA282311F200AD1CCD /* LaunchScreen.storyboard */; };
-		FD14CCF528231A3500AD1CCD /* Chatwoot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD14CCF428231A3500AD1CCD /* Chatwoot.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D5A429202842727000C29EEF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D5A4291F2842727000C29EEF /* Chatwoot.framework in Embed Frameworks */,
+				D5A42926284272EA00C29EEF /* Kingfisher.framework in Embed Frameworks */,
+				D5A42923284272E500C29EEF /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D5A42921284272E500C29EEF /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5A42924284272EA00C29EEF /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD14CCDC282311F000AD1CCD /* DemoApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD14CCDF282311F000AD1CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD14CCE1282311F000AD1CCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD14CCF528231A3500AD1CCD /* Chatwoot.framework in Frameworks */,
+				D5A4291E2842727000C29EEF /* Chatwoot.framework in Frameworks */,
+				D5A42925284272EA00C29EEF /* Kingfisher.framework in Frameworks */,
+				D5A42922284272E500C29EEF /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +99,8 @@
 		FD14CCF328231A3500AD1CCD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5A42924284272EA00C29EEF /* Kingfisher.framework */,
+				D5A42921284272E500C29EEF /* Alamofire.framework */,
 				FD14CCF428231A3500AD1CCD /* Chatwoot.framework */,
 			);
 			name = Frameworks;
@@ -89,6 +116,7 @@
 				FD14CCD8282311F000AD1CCD /* Sources */,
 				FD14CCD9282311F000AD1CCD /* Frameworks */,
 				FD14CCDA282311F000AD1CCD /* Resources */,
+				D5A429202842727000C29EEF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -288,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -305,6 +333,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L7YLMN4634;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApplication/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -312,6 +341,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,6 +362,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L7YLMN4634;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApplication/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -339,6 +370,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
