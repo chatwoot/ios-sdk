@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>to send via chat</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>to send via chat</string>
 </dict>
 </plist>
