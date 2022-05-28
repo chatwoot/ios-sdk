@@ -39,15 +39,15 @@ class ConversationDetailsViewController: ChatViewController {
         
         messageInputBar = CameraInputBarAccessoryView()
         messageInputBar.delegate = self
-        messageInputBar.inputTextView.tintColor = .primaryColor
-        messageInputBar.sendButton.setTitleColor(.primaryColor, for: .normal)
+        messageInputBar.inputTextView.tintColor = GetUserDefaults.getPrimaryColor()
+        messageInputBar.sendButton.setTitleColor(GetUserDefaults.getPrimaryColor(), for: .normal)
         messageInputBar.sendButton.setTitleColor(
-            UIColor.primaryColor.withAlphaComponent(0.3),
+            GetUserDefaults.getPrimaryColor().withAlphaComponent(0.3),
             for: .highlighted)
         
         messageInputBar.isTranslucent = true
         messageInputBar.separatorLine.isHidden = true
-        messageInputBar.inputTextView.tintColor = .primaryColor
+        messageInputBar.inputTextView.tintColor = GetUserDefaults.getPrimaryColor()
         messageInputBar.inputTextView.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         messageInputBar.inputTextView.placeholderTextColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         messageInputBar.inputTextView.textContainerInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 36)
@@ -98,7 +98,7 @@ class ConversationDetailsViewController: ChatViewController {
         messageInputBar.sendButton
             .onEnabled { item in
                 UIView.animate(withDuration: 0.3, animations: {
-                    item.imageView?.backgroundColor = .primaryColor
+                    item.imageView?.backgroundColor = GetUserDefaults.getPrimaryColor()
                 })
             }.onDisabled { item in
                 UIView.animate(withDuration: 0.3, animations: {
@@ -156,7 +156,7 @@ class ConversationDetailsViewController: ChatViewController {
                 $0.setSize(CGSize(width: 25, height: 25), animated: false)
                 $0.tintColor = UIColor(white: 0.8, alpha: 1)
             }.onSelected {
-                $0.tintColor = .primaryColor
+                $0.tintColor = GetUserDefaults.getPrimaryColor()
             }.onDeselected {
                 $0.tintColor = UIColor(white: 0.8, alpha: 1)
             }.onTouchUpInside {
@@ -202,7 +202,7 @@ extension ConversationDetailsViewController: MessagesDisplayDelegate {
     // MARK: - All Messages
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .primaryColor : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+        return isFromCurrentSender(message: message) ? GetUserDefaults.getPrimaryColor() : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
@@ -267,12 +267,12 @@ extension ConversationDetailsViewController: MessagesDisplayDelegate {
         guard shouldShow else { return }
 
         let button = UIButton(type: .infoLight)
-        button.tintColor = .primaryColor
+        button.tintColor = GetUserDefaults.getPrimaryColor()
         accessoryView.addSubview(button)
         button.frame = accessoryView.bounds
         button.isUserInteractionEnabled = false // respond to accessoryView tap through `MessageCellDelegate`
         accessoryView.layer.cornerRadius = accessoryView.frame.height / 2
-        accessoryView.backgroundColor = UIColor.primaryColor.withAlphaComponent(0.3)
+        accessoryView.backgroundColor = GetUserDefaults.getPrimaryColor().withAlphaComponent(0.3)
     }
 }
 

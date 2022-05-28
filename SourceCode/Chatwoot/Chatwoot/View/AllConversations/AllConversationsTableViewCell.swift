@@ -14,12 +14,15 @@ class AllConversationsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblMessage : UILabel!
     @IBOutlet weak var lblDate    : UILabel!
     @IBOutlet weak var lblCount   : PaddingLabel!
+    @IBOutlet weak var rightNavigation: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
         lblCount.layer.masksToBounds = true
         lblCount.layer.cornerRadius = (lblCount.frame.height/2)
+        
+        rightNavigation.tintColor = GetUserDefaults.getPrimaryColor()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.lblCount.layer.cornerRadius = (self.lblCount.frame.height/2)

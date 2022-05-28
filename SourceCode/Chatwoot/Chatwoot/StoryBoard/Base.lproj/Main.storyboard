@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VSC-dl-bi8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -87,7 +88,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.27963083979999998" green="0.57052201030000005" blue="0.96867007019999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="uoo-e9-0Ag" firstAttribute="leading" secondItem="BO5-bm-yfD" secondAttribute="leading" id="9Xr-Dz-M69"/>
                                             <constraint firstItem="er7-g0-IJx" firstAttribute="top" secondItem="slp-St-Oas" secondAttribute="bottom" id="AO6-eU-NJu"/>
@@ -268,6 +269,7 @@
                                                     <outlet property="lblCount" destination="lcc-bu-NqP" id="bN3-95-dBC"/>
                                                     <outlet property="lblDate" destination="HYs-Zj-WtH" id="zyL-mc-yNN"/>
                                                     <outlet property="lblMessage" destination="5HL-5d-EXZ" id="SVm-u2-g4v"/>
+                                                    <outlet property="rightNavigation" destination="t9l-c0-AC9" id="qev-0X-1bu"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -325,6 +327,7 @@
                     <navigationItem key="navigationItem" id="seH-1X-TIK"/>
                     <connections>
                         <outlet property="allConversationsTableView" destination="vPS-AS-KF6" id="ctd-2J-lc4"/>
+                        <outlet property="headerContainerView" destination="9RO-s1-uK7" id="qPt-zS-g5X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

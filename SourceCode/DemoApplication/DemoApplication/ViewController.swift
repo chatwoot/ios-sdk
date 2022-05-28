@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
 
         //initializing chatwoot SDK screens
-        let chatwootVC = ChatwootController().startAConversationWithContact(email: "", name: "", avatar_url: "", custom_attributes: nil)
+        let chatwootVC = ChatwootController().startAConversationWithContact(email: "", name: "", avatar_url: "", custom_attributes: nil, primary_color: nil)
         chatwootVC.modalPresentationStyle = .fullScreen
         self.present(chatwootVC, animated: true, completion: nil)
     }

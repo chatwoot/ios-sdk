@@ -9,6 +9,8 @@ import UIKit
 
 public class ConversationsViewController: UIViewController {
     
+    @IBOutlet weak var headerContainerView: UIView!
+
     @IBOutlet weak var allConversationsTableView: UITableView!
 
     private var allConversationsViewModel = AllConversationsViewModel()
@@ -29,6 +31,7 @@ public class ConversationsViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        configurePrimaryColor()
         configureTableView()
         handleAPICalls()
         
@@ -47,11 +50,17 @@ public class ConversationsViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        configurePrimaryColor()
     }
     
     @IBAction func newConversationClicked(_sender : AnyObject) {
         let conversationDetailsVC = ConversationDetailsViewController()
         self.navigationController?.pushViewController(conversationDetailsVC, animated: true)
+    }
+    
+    func configurePrimaryColor() {
+        self.view.backgroundColor = GetUserDefaults.getPrimaryColor()
+        headerContainerView.backgroundColor = GetUserDefaults.getPrimaryColor()
     }
     
     func configureTableView() {

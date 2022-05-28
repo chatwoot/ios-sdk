@@ -17,30 +17,30 @@ final class NavigationController: UINavigationController {
         super.viewDidLoad()
         navigationBar.isTranslucent = false
         navigationBar.tintColor = .white
-        navigationBar.barTintColor = .primaryColor
+        navigationBar.barTintColor = GetUserDefaults.getPrimaryColor()
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         navigationBar.shadowImage = UIImage()
         navigationBar.setBackgroundImage(UIImage(), for: .default)
-        view.backgroundColor = .primaryColor
+        view.backgroundColor = GetUserDefaults.getPrimaryColor()
         
         if #available(iOS 15.0, *){
             let appearance = UINavigationBarAppearance()
             appearance.configureWithDefaultBackground()
-            appearance.backgroundColor = .primaryColor // The background color.
+            appearance.backgroundColor = GetUserDefaults.getPrimaryColor() // The background color.
             
             navigationBar.standardAppearance = appearance
             navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
             
         } else { // Background color support for older versions
-            navigationBar.barTintColor = .primaryColor
+            navigationBar.barTintColor = GetUserDefaults.getPrimaryColor()
         }
     }
     
     func setAppearanceStyle(to style: UIStatusBarStyle) {
         if style == .default {
             navigationBar.shadowImage = UIImage()
-            navigationBar.barTintColor = .primaryColor
+            navigationBar.barTintColor = GetUserDefaults.getPrimaryColor()
             navigationBar.tintColor = .white
             navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
             navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
