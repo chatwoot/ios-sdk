@@ -36,8 +36,8 @@ open class MessageSizeCalculator: CellSizeCalculator {
     public var incomingAvatarSize = CGSize(width: 30, height: 30)
     public var outgoingAvatarSize = CGSize(width: 30, height: 30)
 
-    public var incomingAvatarPosition = AvatarPosition(vertical: .cellBottom)
-    public var outgoingAvatarPosition = AvatarPosition(vertical: .cellBottom)
+    public var incomingAvatarPosition = AvatarPosition(vertical: .messageCenter)
+    public var outgoingAvatarPosition = AvatarPosition(vertical: .messageCenter)
 
     public var avatarLeadingTrailingPadding: CGFloat = 0
 

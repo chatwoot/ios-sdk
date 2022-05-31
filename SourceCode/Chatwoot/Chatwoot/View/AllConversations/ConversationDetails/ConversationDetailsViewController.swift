@@ -140,7 +140,7 @@ class ConversationDetailsViewController: ChatViewController {
     }
     
     func setTypingIndicatorViewHidden(_ isHidden: Bool, performUpdates updates: (() -> Void)? = nil) {
-        updateTitleView(title: "MessageKit", subtitle: isHidden ? "2 Online" : "Typing...")
+        updateTitleView(title: "Chatwoot", subtitle: isHidden ? "2 Online" : "Typing...")
         setTypingIndicatorViewHidden(isHidden, animated: true, whilePerforming: updates) { [weak self] success in
             if success, self?.isLastSectionVisible() == true {
                 self?.messagesCollectionView.scrollToLastItem(animated: true)

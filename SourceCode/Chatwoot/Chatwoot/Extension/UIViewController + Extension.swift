@@ -94,11 +94,17 @@ extension UIViewController {
         
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
         titleView.addSubview(titleLabel)
+       
+        /*
+         removing subtitle
         if subtitle != nil {
             titleView.addSubview(subtitleLabel)
         } else {
             titleLabel.frame = titleView.frame
-        }
+        }*/
+        
+        titleLabel.frame = titleView.frame
+
         let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
         if widthDiff < 0 {
             let newX = widthDiff / 2

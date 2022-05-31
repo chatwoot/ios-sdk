@@ -30,7 +30,7 @@ open class MessagesCollectionViewLayoutAttributes: UICollectionViewLayoutAttribu
     // MARK: - Properties
 
     public var avatarSize: CGSize = .zero
-    public var avatarPosition = AvatarPosition(vertical: .cellBottom)
+    public var avatarPosition = AvatarPosition(vertical: .messageCenter)
     public var avatarLeadingTrailingPadding: CGFloat = 0
 
     public var messageContainerSize: CGSize = .zero

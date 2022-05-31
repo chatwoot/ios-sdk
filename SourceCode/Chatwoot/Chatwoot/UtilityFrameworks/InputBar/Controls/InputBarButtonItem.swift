@@ -169,7 +169,7 @@ open class InputBarButtonItem: UIButton, InputItem {
     
     /// Sets up the default properties
     open func setup() {
-        contentVerticalAlignment = .center
+        contentVerticalAlignment = .bottom
         contentHorizontalAlignment = .center
         imageView?.contentMode = .scaleAspectFit
         setContentHuggingPriority(UILayoutPriority(rawValue: 500), for: .horizontal)
