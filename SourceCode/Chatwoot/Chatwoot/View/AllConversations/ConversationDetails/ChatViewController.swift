@@ -130,10 +130,21 @@ extension ChatViewController: MessagesDataSource {
     }
 
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        if indexPath.section % 3 == 0 {
-            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.init(name: "HelveticaNeueeTextPro-Bold", size: 10) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        if indexPath.section == 0 {
+            return NSAttributedString(string: MessageKitDateFormatter.shared.stringForGrouping(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.init(name: "HelveticaNeueeTextPro-Bold", size: 10) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         }
-        return nil
+        else {
+            let previousMsg: MessageType = messageList[indexPath.section-1]
+            let previousDate = MessageKitDateFormatter.shared.stringForGrouping(from: previousMsg.sentDate)
+            let currentDate  = MessageKitDateFormatter.shared.stringForGrouping(from: message.sentDate)
+            
+            if previousDate == currentDate {
+                return nil
+            }
+            else {
+            return NSAttributedString(string: MessageKitDateFormatter.shared.stringForGrouping(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.init(name: "HelveticaNeueeTextPro-Bold", size: 10) as Any, NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+            }
+        }
     }
 
     func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
@@ -142,7 +153,7 @@ extension ChatViewController: MessagesDataSource {
     }
 
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        let dateString = message.sentDate.utcToLocalString().utcToLocal().relativeTimeForChat
+        let dateString = message.sentDate.utcToLocalString().utcToLocal().relativeTime
         return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
     }
     

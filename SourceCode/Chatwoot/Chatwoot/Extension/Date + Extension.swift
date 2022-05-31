@@ -152,16 +152,17 @@ extension Date {
         return ""
     }
     
-    var relativeTimeForChat: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy h:mm a"
-        dateFormatter.timeZone = TimeZone.current
-
+    var relativeTimeForGrouping: String {
+        if yearsFromNow > 0 { return "\(yearsFromNow) year" + (yearsFromNow > 1 ? "s" : "") + " ago" }
+        if monthsFromNow > 0 { return "\(monthsFromNow) month" + (monthsFromNow > 1 ? "s" : "") + " ago" }
+        if weeksFromNow > 0 { return "\(weeksFromNow) week" + (weeksFromNow > 1 ? "s" : "") + " ago" }
+        if isInYesterday { return "Yesterday" }
+        if daysFromNow > 0 { return "\(daysFromNow) day" + (daysFromNow > 1 ? "s" : "") + " ago" }
         if hoursFromNow > 0 { return "\(hoursFromNow) hour" + (hoursFromNow > 1 ? "s" : "") + " ago" }
         if minutesFromNow > 0 { return "\(minutesFromNow) minute" + (minutesFromNow > 1 ? "s" : "") + " ago" }
         if secondsFromNow > 0 { return secondsFromNow < 15 ? "Just now"
             : "\(secondsFromNow) second" + (secondsFromNow > 1 ? "s" : "") + " ago" }
-        return dateFormatter.string(from: self)
+        return ""
     }
     
     func utcToLocalString() -> String {

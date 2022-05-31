@@ -42,10 +42,25 @@ open class MessageKitDateFormatter {
         configureDateFormatter(for: date)
         return formatter.string(from: date)
     }
+    
+    public func stringForGrouping(from date: Date) -> String {
+        let localDate = date.utcToLocalString().utcToLocal()
+        let calendar = Calendar.current
+        if calendar.isDateInYesterday(localDate) { return "Yesterday" }
+        else if calendar.isDateInToday(localDate) { return "Today" }
+        else {
+            configureDateFormatterForGrouping(for: date.utcToLocalString().utcToLocal())
+            return formatter.string(from: date)
+        }
+    }
 
     public func attributedString(from date: Date, with attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         let dateString = string(from: date)
         return NSAttributedString(string: dateString, attributes: attributes)
+    }
+    
+    open func configureDateFormatterForGrouping(for date: Date) {
+        formatter.dateFormat = "MMM d, yyyy"
     }
 
     open func configureDateFormatter(for date: Date) {
