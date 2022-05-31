@@ -22,7 +22,7 @@ struct AllConversationsModel: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case conversationID = "id"
         case inboxID = "inbox_id"
-        case agentLastSeenAt = "contact_last_seen_at"
+        case agentLastSeenAt = "agent_last_seen_at"
         case messages = "messages"
         case contact = "contact"
     }
