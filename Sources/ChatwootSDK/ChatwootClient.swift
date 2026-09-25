@@ -25,6 +25,7 @@ public final class ChatwootClient: ObservableObject {
     private var pubsubToken: String?
     private var socket: URLSessionWebSocketTask?
     private var listener: Task<Void, Never>?
+    private var conversationPage = 0
     private var started = false
     @Published public private(set) var hasMoreConversations = true
     private let decoder: JSONDecoder = { let d = JSONDecoder(); d.keyDecodingStrategy = .convertFromSnakeCase; return d }()
@@ -89,15 +90,19 @@ public final class ChatwootClient: ObservableObject {
 
     public func refreshConversations(loadMore: Bool = false) async throws {
         if loadMore && !hasMoreConversations { return }
-        let query = loadMore ? conversations.last?.cursor.map { [URLQueryItem(name: "before", value: String($0))] } ?? [] : []
-        let data = try await request("conversations/history", query: query)
-        struct History: Decodable { let payload: [ChatwootConversation]; let unreadCount: Int }
-        let history = try decoder.decode(History.self, from: data)
-        let items = history.payload
-        hasMoreConversations = items.count == 30
-        if loadMore { conversations += items.filter { item in !conversations.contains(where: { $0.id == item.id }) } }
-        else { conversations = items }
-        unreadCount = history.unreadCount
+        let page = loadMore ? conversationPage + 1 : 1
+        let data = try await request("conversations/list", query: [.init(name: "page", value: String(page))])
+        struct ConversationList: Decodable {
+            let payload: [ChatwootConversation]
+            let meta: Meta
+            struct Meta: Decodable { let hasNextPage: Bool; let unreadCount: Int }
+        }
+        let list = try decoder.decode(ConversationList.self, from: data)
+        if loadMore { conversations += list.payload.filter { item in !conversations.contains(where: { $0.id == item.id }) } }
+        else { conversations = list.payload }
+        conversationPage = page
+        hasMoreConversations = list.meta.hasNextPage
+        unreadCount = list.meta.unreadCount
     }
     public func messages(conversationID: Int, before: Int? = nil) async throws -> [ChatwootMessage] {
         var query = [URLQueryItem(name: "conversation_id", value: String(conversationID))]
@@ -186,7 +191,8 @@ public final class ChatwootClient: ObservableObject {
         try await connect()
         // Verify ownership and inbox before exposing or navigating to this conversation.
         let data = try await request("conversations", query: [.init(name: "conversation_id", value: String(id))])
-        let conversation = try decoder.decode(ChatwootConversation.self, from: data)
+        struct NotificationConversation: Decodable { let inboxId: Int }
+        let conversation = try decoder.decode(NotificationConversation.self, from: data)
         guard conversation.inboxId == inbox else { return false }
         pendingConversationID = id
         return true
@@ -197,7 +203,7 @@ public final class ChatwootClient: ObservableObject {
         if session == nil { session = try SessionStore.load(key) }
         if let id = session?.deviceID { _ = try await request("mobile_push_devices/\(id)", method: "DELETE") }
         try SessionStore.save(nil, key: key)
-        pause(); sessionVersion += 1; connectionTask?.cancel(); connectionTask = nil; session = nil; conversations = []; connected = false; unreadCount = 0; pendingConversationID = nil
+        pause(); sessionVersion += 1; connectionTask?.cancel(); connectionTask = nil; session = nil; conversations = []; conversationPage = 0; connected = false; unreadCount = 0; pendingConversationID = nil
         revision += 1
     }
     public func pause() { started = false; listener?.cancel(); listener = nil; socket?.cancel(with: .goingAway, reason: nil); socket = nil }

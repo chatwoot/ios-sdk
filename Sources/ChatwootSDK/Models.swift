@@ -13,11 +13,9 @@ public struct ChatwootConfiguration {
 
 public struct ChatwootConversation: Decodable, Identifiable {
     public let id: Int
-    public let cursor: Int?
-    public let inboxId: Int
     public let status: String
     public let unreadCount: Int?
-    public let updatedAt: Double?
+    public let lastActivityAt: Double?
     public let lastMessage: ChatwootMessage?
 }
 public struct ChatwootMessage: Decodable, Identifiable {

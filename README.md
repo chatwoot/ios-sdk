@@ -1,6 +1,6 @@
 # Chatwoot iOS SDK
 
-Add native customer support chat to your iOS app. The SDK connects to a Chatwoot API or Website inbox and provides a ready-to-use conversation list, chat screen, and pre-chat form.
+Add native customer support chat to your iOS app. The SDK connects to a Chatwoot Website inbox and provides a ready-to-use conversation list, chat screen, and pre-chat form.
 
 > **Preview:** This SDK is under development and has not been released.
 
@@ -20,7 +20,7 @@ Add native customer support chat to your iOS app. The SDK connects to a Chatwoot
 
 - iOS 17 or later.
 - Swift 5.9 or later and an Xcode version supporting the target iOS version.
-- A compatible Chatwoot backend, an SDK app connected to an API or Website inbox.
+- A compatible Chatwoot backend, an SDK app connected to an Website inbox.
 - A backend URL reachable from the app. Use HTTPS in production.
 - For push notifications: an Apple Developer account, an app with Push Notifications enabled, and APNs credentials configured in Chatwoot.
 
@@ -38,7 +38,7 @@ Repository-based installation will be available after the new package is publish
 
 ## Quick start
 
-In **Chatwoot → Settings → Integrations → SDKs**, add an app, connect an API or Website inbox, and save it. Apple push configuration is optional. Copy the **SDK app ID**. Multiple SDK apps can connect to the same inbox.
+In **Chatwoot → Settings → Integrations → SDKs**, add an app, connect an Website inbox, and save it. Apple push configuration is optional. Copy the **SDK app ID**. Multiple SDK apps can connect to the same inbox.
 
 Create one client for the current customer:
 

@@ -97,7 +97,7 @@ private struct ConversationRow: View {
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
                     Text(senderName).font(ChatStyle.font(14, medium: true)).foregroundStyle(ChatStyle.primary).lineLimit(1).frame(minHeight: 21)
                     Spacer(minLength: 4)
-                    if let date = conversation.lastMessage?.createdAt ?? conversation.updatedAt {
+                    if let date = conversation.lastMessage?.createdAt ?? conversation.lastActivityAt {
                         TimelineView(.periodic(from: .now, by: 60)) { context in
                             Text(ChatStyle.relativeTime(date, now: context.date)).font(ChatStyle.font(12)).foregroundStyle(ChatStyle.secondary).fixedSize()
                         }
