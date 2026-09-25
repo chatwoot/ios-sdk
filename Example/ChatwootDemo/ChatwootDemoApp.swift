@@ -14,11 +14,11 @@ final class DemoState: ObservableObject {
     @Published var showingChat = false
     @Published var status = ""
     func configure(host: String, token: String) {
-        guard let url = URL(string: host), ["http", "https"].contains(url.scheme), url.host != nil, !token.isEmpty else { status = "Enter a valid URL and Website inbox token."; return }
-        if let client, client.configuration.baseURL == url, client.configuration.websiteToken == token { return }
+        guard let url = URL(string: host), ["http", "https"].contains(url.scheme), url.host != nil, !token.isEmpty else { status = "Enter a valid URL and SDK app identifier."; return }
+        if let client, client.configuration.baseURL == url, client.configuration.sdkAppID == token { return }
         status = ""
         client?.pause()
-        var configuration = ChatwootConfiguration(baseURL: url, websiteToken: token)
+        var configuration = ChatwootConfiguration(baseURL: url, sdkAppID: token)
         // Live Chat V2 preview palette. Omit these overrides to use inbox branding.
         configuration.accentColor = "#00ff9d"
         configuration.outgoingMessageColor = "#cee5d6"
@@ -33,7 +33,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         UNUserNotificationCenter.current().delegate = self
         let host = UserDefaults.standard.string(forKey: "sdkHost") ?? "http://localhost:3127"
-        let token = UserDefaults.standard.string(forKey: "sdkToken") ?? ""
+        let token = UserDefaults.standard.string(forKey: "sdkAppID") ?? ""
         DemoState.shared.configure(host: host, token: token)
         Task { @MainActor in
             let settings = await UNUserNotificationCenter.current().notificationSettings()
@@ -73,13 +73,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
 struct DemoHome: View {
     @ObservedObject var model: DemoState
     @AppStorage("sdkHost") private var host = "http://localhost:3127"
-    @AppStorage("sdkToken") private var token = ""
+    @AppStorage("sdkAppID") private var token = ""
     var body: some View {
         NavigationStack {
             Form {
-                Section("Website inbox") {
+                Section("SDK app") {
                     TextField("Chatwoot URL", text: $host)
-                    TextField("Website inbox token", text: $token)
+                    TextField("SDK app identifier", text: $token)
                     Button("Connect and open support") { model.configure(host: host, token: token); model.showingChat = model.client != nil }
                 }.textInputAutocapitalization(.never).autocorrectionDisabled()
                 Section("Push notifications") {

@@ -1,6 +1,6 @@
 # Chatwoot iOS SDK
 
-Add native customer support chat to your iOS app. The SDK connects to a Chatwoot Website inbox and provides a ready-to-use conversation list, chat screen, and pre-chat form.
+Add native customer support chat to your iOS app. The SDK connects to a Chatwoot API or Website inbox and provides a ready-to-use conversation list, chat screen, and pre-chat form.
 
 > **Preview:** This SDK is under development and has not been released.
 
@@ -20,7 +20,7 @@ Add native customer support chat to your iOS app. The SDK connects to a Chatwoot
 
 - iOS 17 or later.
 - Swift 5.9 or later and an Xcode version supporting the target iOS version.
-- A compatible Chatwoot backend, a Website inbox, and its website token.
+- A compatible Chatwoot backend, an SDK app connected to an API or Website inbox.
 - A backend URL reachable from the app. Use HTTPS in production.
 - For push notifications: an Apple Developer account, an app with Push Notifications enabled, and APNs credentials configured in Chatwoot.
 
@@ -38,6 +38,8 @@ Repository-based installation will be available after the new package is publish
 
 ## Quick start
 
+In **Chatwoot → Settings → Integrations → SDKs**, add an app, connect an API or Website inbox, and save it. Apple push configuration is optional. Copy the **SDK app ID**. Multiple SDK apps can connect to the same inbox.
+
 Create one client for the current customer:
 
 ```swift
@@ -47,7 +49,7 @@ import ChatwootSDK
 
 let client = ChatwootClient(configuration: .init(
     baseURL: URL(string: "https://support.example.com")!,
-    websiteToken: "YOUR_WEBSITE_INBOX_TOKEN"
+    sdkAppID: "YOUR_SDK_APP_ID"
 ))
 ```
 
@@ -73,7 +75,7 @@ Keep the signing secret on your backend. On logout, await `client.reset()` befor
 ## Push notifications
 
 1. Enable **Push Notifications** for your app in Apple Developer and Xcode.
-2. In **Chatwoot → Settings → Inboxes → Website inbox → Mobile apps**, configure the Bundle ID, Team ID, Key ID, and APNs `.p8` key. The private key stays on the backend.
+2. In **Chatwoot → Settings → Integrations → SDKs → Your app**, configure the Bundle ID, Team ID, Key ID, and APNs `.p8` key. The private key stays on the backend.
 3. Request notification permission in your app and register with APNs. Forward the current device token to `client.registerDeviceToken(_:environment:name:)`, using the environment matching the app’s signing: development for sandbox and production for TestFlight/App Store.
 4. Forward notification taps to `client.handleNotification(_:)`. When it returns `true`, present the support UI. Initialize the client before handling notification taps, including cold launch.
 
@@ -83,7 +85,7 @@ See the [example app](Example/ChatwootDemo/ChatwootDemoApp.swift) for the integr
 
 ## Run the example
 
-Open `Example/ChatwootDemo.xcodeproj`, select a simulator or device, and run **ChatwootDemo**. Enter the backend URL and Website inbox token, then select **Connect and open support**.
+Open `Example/ChatwootDemo.xcodeproj`, select a simulator or device, and run **ChatwootDemo**. Enter the backend URL and SDK app identifier, then select **Connect and open support**.
 
 For device builds, configure your own signing team and Bundle ID. Keep normal Xcode signing enabled for Keychain access. A physical device needs a backend URL reachable from that device; `localhost` refers to the device itself.
 

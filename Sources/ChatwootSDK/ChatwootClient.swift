@@ -28,14 +28,14 @@ public final class ChatwootClient: ObservableObject {
     private var started = false
     @Published public private(set) var hasMoreConversations = true
     private let decoder: JSONDecoder = { let d = JSONDecoder(); d.keyDecodingStrategy = .convertFromSnakeCase; return d }()
-    private var key: String { configuration.baseURL.absoluteString + "|" + configuration.websiteToken }
+    private var key: String { configuration.baseURL.absoluteString + "|" + configuration.sdkAppID }
 
     public init(configuration: ChatwootConfiguration) { self.configuration = configuration }
 
     func request(_ path: String, method: String = "GET", query: [URLQueryItem] = [], body: [String: Any]? = nil, upload: (Data, String, String)? = nil) async throws -> Data {
         let version = sessionVersion
         var components = URLComponents(url: configuration.baseURL.appendingPathComponent("api/v1/widget/" + path), resolvingAgainstBaseURL: false)!
-        components.queryItems = [URLQueryItem(name: "website_token", value: configuration.websiteToken)] + query
+        components.queryItems = [URLQueryItem(name: "sdk_app_id", value: configuration.sdkAppID)] + query
         var request = URLRequest(url: components.url!)
         request.httpMethod = method; request.timeoutInterval = 30
         request.setValue(session?.token, forHTTPHeaderField: "X-Auth-Token")
@@ -174,7 +174,7 @@ public final class ChatwootClient: ObservableObject {
     }
     public func registerDeviceToken(_ token: Data, environment: String, name: String) async throws {
         try await connect()
-        var body: [String: Any] = ["device_token": token.map { String(format: "%02x", $0) }.joined(), "environment": environment, "name": name]
+        var body: [String: Any] = ["platform": "ios", "device_token": token.map { String(format: "%02x", $0) }.joined(), "environment": environment, "name": name]
         if let id = session?.deviceID { body["device_id"] = id }
         let data = try await request("mobile_push_devices", method: "POST", body: body)
         struct Device: Decodable { let id: Int }

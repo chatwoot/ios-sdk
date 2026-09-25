@@ -2,12 +2,12 @@ import Foundation
 
 public struct ChatwootConfiguration {
     public let baseURL: URL
-    public let websiteToken: String
+    public let sdkAppID: String
     public var accentColor: String?
     public var outgoingMessageColor: String?
-    public init(baseURL: URL, websiteToken: String) {
+    public init(baseURL: URL, sdkAppID: String) {
         self.baseURL = baseURL
-        self.websiteToken = websiteToken
+        self.sdkAppID = sdkAppID
     }
 }
 
