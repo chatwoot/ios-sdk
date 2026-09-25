@@ -163,7 +163,7 @@ public final class ChatwootClient: ObservableObject {
         guard !identifier.isEmpty, !signature.isEmpty else { throw ChatwootError.message("A customer identifier and backend-generated signature are required.") }
         try await connect()
         if let id = session?.deviceID {
-            _ = try await request("mobile_push_devices/\(id)", method: "DELETE")
+            _ = try await request("sdk_push_devices/\(id)", method: "DELETE")
             session?.deviceID = nil
             try SessionStore.save(session, key: key)
         }
@@ -181,7 +181,7 @@ public final class ChatwootClient: ObservableObject {
         try await connect()
         var body: [String: Any] = ["platform": "ios", "device_token": token.map { String(format: "%02x", $0) }.joined(), "environment": environment, "name": name]
         if let id = session?.deviceID { body["device_id"] = id }
-        let data = try await request("mobile_push_devices", method: "POST", body: body)
+        let data = try await request("sdk_push_devices", method: "POST", body: body)
         struct Device: Decodable { let id: Int }
         session?.deviceID = try decoder.decode(Device.self, from: data).id
         try SessionStore.save(session, key: key)
@@ -201,7 +201,7 @@ public final class ChatwootClient: ObservableObject {
     public func reset() async throws {
         // A host can sign out immediately after launch, before connect() has loaded Keychain.
         if session == nil { session = try SessionStore.load(key) }
-        if let id = session?.deviceID { _ = try await request("mobile_push_devices/\(id)", method: "DELETE") }
+        if let id = session?.deviceID { _ = try await request("sdk_push_devices/\(id)", method: "DELETE") }
         try SessionStore.save(nil, key: key)
         pause(); sessionVersion += 1; connectionTask?.cancel(); connectionTask = nil; session = nil; conversations = []; conversationPage = 0; connected = false; unreadCount = 0; pendingConversationID = nil
         revision += 1
