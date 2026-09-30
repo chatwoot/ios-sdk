@@ -1,6 +1,6 @@
 # Chatwoot iOS SDK
 
-Add native customer support chat to your iOS app. The SDK connects to a Chatwoot Website inbox and provides a ready-to-use conversation list, chat screen, and pre-chat form.
+Add native customer support chat to your iOS app. The SDK connects to a Chatwoot Mobile app inbox and provides a ready-to-use conversation list, chat screen, and pre-chat form.
 
 > **Preview:** This SDK is under development and has not been released.
 
@@ -9,7 +9,7 @@ Add native customer support chat to your iOS app. The SDK connects to a Chatwoot
 - Multiple conversations, message history, and unread counts.
 - Text messages, basic Markdown, images, and file attachments.
 - Live replies and automatic updates while support is open.
-- Pre-chat forms using the Website inbox’s configured fields and validation.
+- Pre-chat forms using the Mobile app inbox’s configured fields and validation.
 - Anonymous chat and verified customer identification.
 - Persistent sessions stored in Keychain.
 - Push notification registration and navigation to the relevant conversation.
@@ -20,7 +20,7 @@ Add native customer support chat to your iOS app. The SDK connects to a Chatwoot
 
 - iOS 17 or later.
 - Swift 5.9 or later and an Xcode version supporting the target iOS version.
-- A compatible Chatwoot backend, an SDK app connected to an Website inbox.
+- A compatible Chatwoot backend, a Mobile app inbox.
 - A backend URL reachable from the app. Use HTTPS in production.
 - For push notifications: an Apple Developer account, an app with Push Notifications enabled, and APNs credentials configured in Chatwoot.
 
@@ -38,7 +38,7 @@ Repository-based installation will be available after the new package is publish
 
 ## Quick start
 
-In **Chatwoot → Settings → Integrations → SDKs**, add an app, connect an Website inbox, and save it. Apple push configuration is optional. Copy the **SDK app ID**. Multiple SDK apps can connect to the same inbox.
+In **Chatwoot → Settings → Inboxes → Add inbox**, choose **Mobile app** and add your agents. Open the inbox Setup tab and copy its **SDK app ID**. Use the same ID for iOS, Android, and React Native. Push configuration is optional.
 
 Create one client for the current customer:
 
@@ -75,7 +75,7 @@ Keep the signing secret on your backend. On logout, await `client.reset()` befor
 ## Push notifications
 
 1. Enable **Push Notifications** for your app in Apple Developer and Xcode.
-2. In **Chatwoot → Settings → Integrations → SDKs → Your app**, configure the Bundle ID, Team ID, Key ID, and APNs `.p8` key. The private key stays on the backend.
+2. In **Chatwoot → Settings → Inboxes → Your mobile inbox → Push notifications → iOS**, configure the Bundle ID, Team ID, Key ID, and APNs `.p8` key. The private key stays on the backend.
 3. Request notification permission in your app and register with APNs. Forward the current device token to `client.registerDeviceToken(_:environment:name:)`, using the environment matching the app’s signing: development for sandbox and production for TestFlight/App Store.
 4. Forward notification taps to `client.handleNotification(_:)`. When it returns `true`, present the support UI. Initialize the client before handling notification taps, including cold launch.
 
